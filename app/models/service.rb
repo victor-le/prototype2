@@ -1,3 +1,3 @@
 class Service < ApplicationRecord
-    has_many :app_schedules
+    has_many :appschedules, dependent: :destroy
 end

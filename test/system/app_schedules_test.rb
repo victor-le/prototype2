@@ -14,12 +14,16 @@ class AppSchedulesTest < ApplicationSystemTestCase
     visit app_schedules_url
     click_on "New App Schedule"
 
-    fill_in "Appaddress", with: @app_schedule.appaddress_id
     fill_in "Appduration", with: @app_schedule.appduration_id
-    fill_in "Apptime", with: @app_schedule.apptime_id
-    fill_in "Client", with: @app_schedule.client_id
+    fill_in "City", with: @app_schedule.city
+    fill_in "Homeaddress", with: @app_schedule.homeAddress
+    fill_in "Hometype", with: @app_schedule.homeType
     fill_in "Service", with: @app_schedule.service_id
     fill_in "Specialrequirement", with: @app_schedule.specialrequirement_id
+    fill_in "State", with: @app_schedule.state
+    fill_in "Suitenumber", with: @app_schedule.suiteNumber
+    fill_in "User", with: @app_schedule.user_id
+    fill_in "Zipcode", with: @app_schedule.zipcode
     click_on "Create App schedule"
 
     assert_text "App schedule was successfully created"
@@ -30,12 +34,16 @@ class AppSchedulesTest < ApplicationSystemTestCase
     visit app_schedules_url
     click_on "Edit", match: :first
 
-    fill_in "Appaddress", with: @app_schedule.appaddress_id
     fill_in "Appduration", with: @app_schedule.appduration_id
-    fill_in "Apptime", with: @app_schedule.apptime_id
-    fill_in "Client", with: @app_schedule.client_id
+    fill_in "City", with: @app_schedule.city
+    fill_in "Homeaddress", with: @app_schedule.homeAddress
+    fill_in "Hometype", with: @app_schedule.homeType
     fill_in "Service", with: @app_schedule.service_id
     fill_in "Specialrequirement", with: @app_schedule.specialrequirement_id
+    fill_in "State", with: @app_schedule.state
+    fill_in "Suitenumber", with: @app_schedule.suiteNumber
+    fill_in "User", with: @app_schedule.user_id
+    fill_in "Zipcode", with: @app_schedule.zipcode
     click_on "Update App schedule"
 
     assert_text "App schedule was successfully updated"

@@ -1,34 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="max-w-lg my-10 m-auto">
+  <div class="p-10 bg-white border border-grey-light rounded">
 
-<p>
-  <strong>Client:</strong>
-  <%= @app_schedule.client_id %>
-</p>
+    <div class="flex flex-wrap justify-between items-center mb-5">
+      <h1><%= @app_schedule.user.name %></h1>
+      <%= link_to "Cancel Appointment", app_schedule_path(@app_schedule), method: :delete, data: { confirm: "Are you sure you want to cancel? "}, class: "btn btn-destroy" if admin? %>
+    </div>
 
-<p>
-  <strong>Appaddress:</strong>
-  <%= @app_schedule.appaddress_id %>
-</p>
+    <div class="border p-6 bg-grey-lighter mb-5 flex items-center justify-between">
+      <p class="border-2 py-3 px-4 border-indigo rounded-full text-sm text-indigo">
+        Appointment time: <span class="font-bold"><%= readable_time(@app_schedule.appDate) %></span>
+        <br>
+        Address: <span class="font-bold"><%= @app_schedule.homeAddress %></span>
+        <span class="font-bold"><%= @app_schedule.city %> </span>
+        <span class="font-bold"><%= @app_schedule.state %> </span>
+        <span class="font-bold"><%= @app_schedule.zipcode %></span>
 
-<p>
-  <strong>Apptime:</strong>
-  <%= @app_schedule.apptime_id %>
-</p>
 
-<p>
-  <strong>Service:</strong>
-  <%= @app_schedule.service_id %>
-</p>
 
-<p>
-  <strong>Appduration:</strong>
-  <%= @app_schedule.appduration_id %>
-</p>
-
-<p>
-  <strong>Specialrequirement:</strong>
-  <%= @app_schedule.specialrequirement_id %>
-</p>
-
-<%= link_to 'Edit', edit_app_schedule_path(@app_schedule) %> |
-<%= link_to 'Back', app_schedules_path %>
+      </p>
+      </p>
+    </div>
+  </div>

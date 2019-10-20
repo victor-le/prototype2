@@ -1,39 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="container m-auto my-4">
+  <% unless current_user.app_schedules.any? %>
+    <%= render "app_schedules_cta" unless admin? %>
+  <% else %>
+    <%= render "app_schedules_landing", app_schedules: @app_schedules %>
+  <% end %>
 
-<h1>App Schedules</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Client First Name</th>
-      <th>Client Last Name </th>
-      <th>Appaddress</th>
-      <th>Apptime</th>
-      <th>Service</th>
-      <th>Appduration</th>
-      <th>Specialrequirement</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @app_schedules.each do |app_schedule| %>
-      <tr>
-        <td><%= app_schedule.client.clientFName %></td>
-        <td><%= app_schedule.client.clientLName %></td>
-        <td><%= app_schedule.appaddress.homeAddress %></td>
-        <td><%= app_schedule.apptime.appDate%></td>
-        <td><%= app_schedule.service.serviceName %></td>
-        <td><%= app_schedule.appduration.duration %></td>
-        <td><%= app_schedule.specialrequirement.requirementDesc %></td>
-        <td><%= link_to 'Show', app_schedule %></td>
-        <td><%= link_to 'Edit', edit_app_schedule_path(app_schedule) %></td>
-        <td><%= link_to 'Destroy', app_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New App Schedule', new_app_schedule_path %>
+  <% if current_user.admin? %>
+    <%= render "app_schedules_landing", app_schedules: @app_schedules %>
+  <% end %>
+</div>

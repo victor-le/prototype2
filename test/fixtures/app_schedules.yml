@@ -1,17 +1,25 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  client: one
-  appaddress: one
-  apptime: one
+  homeAddress: MyString
+  homeType: MyString
+  suiteNumber: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  user: one
   service: one
   appduration: one
   specialrequirement: one
 
 two:
-  client: two
-  appaddress: two
-  apptime: two
+  homeAddress: MyString
+  homeType: MyString
+  suiteNumber: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  user: two
   service: two
   appduration: two
   specialrequirement: two

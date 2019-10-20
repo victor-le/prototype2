@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_160141) do
+ActiveRecord::Schema.define(version: 2019_10_20_171404) do
 
   create_table "app_addresses", force: :cascade do |t|
     t.string "homeType"
@@ -31,20 +31,23 @@ ActiveRecord::Schema.define(version: 2019_10_19_160141) do
   end
 
   create_table "app_schedules", force: :cascade do |t|
-    t.integer "client_id", null: false
-    t.integer "appaddress_id", null: false
-    t.integer "apptime_id", null: false
-    t.integer "service_id", null: false
-    t.integer "appduration_id", null: false
-    t.integer "specialrequirement_id", null: false
+    t.string "homeAddress"
+    t.string "homeType"
+    t.string "suiteNumber"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.datetime "appDate"
+    t.integer "user_id"
+    t.integer "service_id"
+    t.integer "addDuration_id"
+    t.integer "specialRequirement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["appaddress_id"], name: "index_app_schedules_on_appaddress_id"
-    t.index ["appduration_id"], name: "index_app_schedules_on_appduration_id"
-    t.index ["apptime_id"], name: "index_app_schedules_on_apptime_id"
-    t.index ["client_id"], name: "index_app_schedules_on_client_id"
+    t.index "\"appDuration_id\"", name: "index_app_schedules_on_appDuration_id"
     t.index ["service_id"], name: "index_app_schedules_on_service_id"
-    t.index ["specialrequirement_id"], name: "index_app_schedules_on_specialrequirement_id"
+    t.index ["specialRequirement_id"], name: "index_app_schedules_on_specialRequirement_id"
+    t.index ["user_id"], name: "index_app_schedules_on_user_id"
   end
 
   create_table "app_times", force: :cascade do |t|
@@ -92,7 +95,7 @@ ActiveRecord::Schema.define(version: 2019_10_19_160141) do
 
   create_table "special_requirements", force: :cascade do |t|
     t.string "requirementDesc"
-    t.string "requirementValue"
+    t.integer "requirementValue"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -112,12 +115,6 @@ ActiveRecord::Schema.define(version: 2019_10_19_160141) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "app_schedules", "appaddresses"
-  add_foreign_key "app_schedules", "appdurations"
-  add_foreign_key "app_schedules", "apptimes"
-  add_foreign_key "app_schedules", "clients"
-  add_foreign_key "app_schedules", "services"
-  add_foreign_key "app_schedules", "specialrequirements"
   add_foreign_key "client_addresses", "appaddresses"
   add_foreign_key "client_addresses", "clients"
 end

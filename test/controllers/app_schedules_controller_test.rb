@@ -17,7 +17,7 @@ class AppSchedulesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create app_schedule" do
     assert_difference('AppSchedule.count') do
-      post app_schedules_url, params: { app_schedule: { appaddress_id: @app_schedule.appaddress_id, appduration_id: @app_schedule.appduration_id, apptime_id: @app_schedule.apptime_id, client_id: @app_schedule.client_id, service_id: @app_schedule.service_id, specialrequirement_id: @app_schedule.specialrequirement_id } }
+      post app_schedules_url, params: { app_schedule: { appduration_id: @app_schedule.appduration_id, city: @app_schedule.city, homeAddress: @app_schedule.homeAddress, homeType: @app_schedule.homeType, service_id: @app_schedule.service_id, specialrequirement_id: @app_schedule.specialrequirement_id, state: @app_schedule.state, suiteNumber: @app_schedule.suiteNumber, user_id: @app_schedule.user_id, zipcode: @app_schedule.zipcode } }
     end
 
     assert_redirected_to app_schedule_url(AppSchedule.last)
@@ -34,7 +34,7 @@ class AppSchedulesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update app_schedule" do
-    patch app_schedule_url(@app_schedule), params: { app_schedule: { appaddress_id: @app_schedule.appaddress_id, appduration_id: @app_schedule.appduration_id, apptime_id: @app_schedule.apptime_id, client_id: @app_schedule.client_id, service_id: @app_schedule.service_id, specialrequirement_id: @app_schedule.specialrequirement_id } }
+    patch app_schedule_url(@app_schedule), params: { app_schedule: { appduration_id: @app_schedule.appduration_id, city: @app_schedule.city, homeAddress: @app_schedule.homeAddress, homeType: @app_schedule.homeType, service_id: @app_schedule.service_id, specialrequirement_id: @app_schedule.specialrequirement_id, state: @app_schedule.state, suiteNumber: @app_schedule.suiteNumber, user_id: @app_schedule.user_id, zipcode: @app_schedule.zipcode } }
     assert_redirected_to app_schedule_url(@app_schedule)
   end
 

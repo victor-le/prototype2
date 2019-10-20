@@ -2,8 +2,8 @@
 
 one:
   requirementDesc: MyString
-  requirementValue: MyString
+  requirementValue: 1
 
 two:
   requirementDesc: MyString
-  requirementValue: MyString
+  requirementValue: 1
