@@ -1,0 +1,18 @@
+<div class="container m-auto bg-white my-10 border border-grey-light p-10">
+  <h1 class="text-indigo-darker">Active Sessions</h1>
+
+  <% @active_sessions.each do |app_schedule| %>
+    <div class="flex flex-wrap items-center justify-start p-4 border-b border-grey-light mb-6">
+      <div class="flex-1 flex justify-between">
+        <div>
+          <%= link_to app_schedule.user.name, app_schedule, class: "link mr-4" %>
+        </div>
+        <div>
+          <%= readable_time(app_schedule.appDate) %>
+        </div>
+      </div>
+
+      <%= link_to 'Cancel Appointment', app_schedule, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-destroy ml-4" if admin? %>
+    </div>
+  <% end %>
+</div>

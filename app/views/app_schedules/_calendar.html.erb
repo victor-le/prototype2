@@ -1,0 +1,8 @@
+<%= month_calendar events: app_schedules do |date, app_schedules| %>
+  <%= date %>
+  <% app_schedules.each do |app_schedule| %>
+    <div>
+      <%= link_to app_schedule.user.name, app_schedule, class: "link" %>
+    </div>
+  <% end %>
+<% end %>
