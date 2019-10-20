@@ -1,0 +1,27 @@
+<%= form_with(model: special_requirement, local: true) do |form| %>
+  <% if special_requirement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(special_requirement.errors.count, "error") %> prohibited this special_requirement from being saved:</h2>
+
+      <ul>
+        <% special_requirement.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :requirementDesc %>
+    <%= form.text_field :requirementDesc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :requirementValue %>
+    <%= form.text_field :requirementValue %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @app_schedule.client_id %>
+</p>
+
+<p>
+  <strong>Appaddress:</strong>
+  <%= @app_schedule.appaddress_id %>
+</p>
+
+<p>
+  <strong>Apptime:</strong>
+  <%= @app_schedule.apptime_id %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @app_schedule.service_id %>
+</p>
+
+<p>
+  <strong>Appduration:</strong>
+  <%= @app_schedule.appduration_id %>
+</p>
+
+<p>
+  <strong>Specialrequirement:</strong>
+  <%= @app_schedule.specialrequirement_id %>
+</p>
+
+<%= link_to 'Edit', edit_app_schedule_path(@app_schedule) %> |
+<%= link_to 'Back', app_schedules_path %>

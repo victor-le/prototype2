@@ -10,7 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_130008) do
+ActiveRecord::Schema.define(version: 2019_10_19_160141) do
+
+  create_table "app_addresses", force: :cascade do |t|
+    t.string "homeType"
+    t.string "homeAddress"
+    t.string "suiteNumber"
+    t.string "state"
+    t.string "city"
+    t.integer "zipcode"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "app_durations", force: :cascade do |t|
+    t.integer "duration"
+    t.decimal "durationPrice"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "app_schedules", force: :cascade do |t|
+    t.integer "client_id", null: false
+    t.integer "appaddress_id", null: false
+    t.integer "apptime_id", null: false
+    t.integer "service_id", null: false
+    t.integer "appduration_id", null: false
+    t.integer "specialrequirement_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["appaddress_id"], name: "index_app_schedules_on_appaddress_id"
+    t.index ["appduration_id"], name: "index_app_schedules_on_appduration_id"
+    t.index ["apptime_id"], name: "index_app_schedules_on_apptime_id"
+    t.index ["client_id"], name: "index_app_schedules_on_client_id"
+    t.index ["service_id"], name: "index_app_schedules_on_service_id"
+    t.index ["specialrequirement_id"], name: "index_app_schedules_on_specialrequirement_id"
+  end
+
+  create_table "app_times", force: :cascade do |t|
+    t.datetime "appDate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "client_addresses", force: :cascade do |t|
+    t.integer "client_id", null: false
+    t.integer "appaddress_id", null: false
+    t.string "comments"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["appaddress_id"], name: "index_client_addresses_on_appaddress_id"
+    t.index ["client_id"], name: "index_client_addresses_on_client_id"
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "clientFName"
+    t.string "clientLName"
+    t.string "clientEmail"
+    t.string "clientPhone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -21,6 +81,20 @@ ActiveRecord::Schema.define(version: 2019_10_19_130008) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "serviceName"
+    t.decimal "servicePrice"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "special_requirements", force: :cascade do |t|
+    t.string "requirementDesc"
+    t.string "requirementValue"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +112,12 @@ ActiveRecord::Schema.define(version: 2019_10_19_130008) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "app_schedules", "appaddresses"
+  add_foreign_key "app_schedules", "appdurations"
+  add_foreign_key "app_schedules", "apptimes"
+  add_foreign_key "app_schedules", "clients"
+  add_foreign_key "app_schedules", "services"
+  add_foreign_key "app_schedules", "specialrequirements"
+  add_foreign_key "client_addresses", "appaddresses"
+  add_foreign_key "client_addresses", "clients"
 end

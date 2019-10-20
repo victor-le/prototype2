@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @app_duration.duration %>
+</p>
+
+<p>
+  <strong>Durationprice:</strong>
+  <%= @app_duration.durationPrice %>
+</p>
+
+<%= link_to 'Edit', edit_app_duration_path(@app_duration) %> |
+<%= link_to 'Back', app_durations_path %>

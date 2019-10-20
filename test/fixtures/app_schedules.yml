@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: one
+  appaddress: one
+  apptime: one
+  service: one
+  appduration: one
+  specialrequirement: one
+
+two:
+  client: two
+  appaddress: two
+  apptime: two
+  service: two
+  appduration: two
+  specialrequirement: two

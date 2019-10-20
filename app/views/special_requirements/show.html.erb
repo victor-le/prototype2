@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Requirementdesc:</strong>
+  <%= @special_requirement.requirementDesc %>
+</p>
+
+<p>
+  <strong>Requirementvalue:</strong>
+  <%= @special_requirement.requirementValue %>
+</p>
+
+<%= link_to 'Edit', edit_special_requirement_path(@special_requirement) %> |
+<%= link_to 'Back', special_requirements_path %>

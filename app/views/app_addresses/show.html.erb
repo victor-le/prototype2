@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hometype:</strong>
+  <%= @app_address.homeType %>
+</p>
+
+<p>
+  <strong>Homeaddress:</strong>
+  <%= @app_address.homeAddress %>
+</p>
+
+<p>
+  <strong>Suitenumber:</strong>
+  <%= @app_address.suiteNumber %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @app_address.state %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @app_address.city %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @app_address.zipcode %>
+</p>
+
+<%= link_to 'Edit', edit_app_address_path(@app_address) %> |
+<%= link_to 'Back', app_addresses_path %>

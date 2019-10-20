@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Special Requirements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Requirementdesc</th>
+      <th>Requirementvalue</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @special_requirements.each do |special_requirement| %>
+      <tr>
+        <td><%= special_requirement.requirementDesc %></td>
+        <td><%= special_requirement.requirementValue %></td>
+        <td><%= link_to 'Show', special_requirement %></td>
+        <td><%= link_to 'Edit', edit_special_requirement_path(special_requirement) %></td>
+        <td><%= link_to 'Destroy', special_requirement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Special Requirement', new_special_requirement_path %>

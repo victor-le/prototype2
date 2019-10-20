@@ -1,0 +1,2 @@
+module AppTimesHelper
+end

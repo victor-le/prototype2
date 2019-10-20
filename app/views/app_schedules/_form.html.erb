@@ -1,0 +1,92 @@
+<%= form_with(model: app_schedule, local: true) do |form| %>
+  <% if app_schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(app_schedule.errors.count, "error") %> prohibited this app_schedule from being saved:</h2>
+
+      <ul>
+        <% app_schedule.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class= "mb-4">
+    <%= form.label :first_name , class: "label"%>
+    <%= form.text_field :clientFName, class: "input" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :last_name, class: "label" %>
+    <%= form.text_field :clientLName, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email, class: "label" %>
+    <%= form.text_field :clientEmail, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number, class: "label" %>
+    <%= form.text_field :clientPhone, class: "input" %>
+  </div>
+
+  <div class="field">
+  <%= form.label :address, class: "label" %>
+  <%= form.text_field :homeAddress, class: "input" %>
+</div>
+
+<div class="field">
+<%= form.label :home_type, class: "label" %>
+<%= form.text_field :homeType, class: "input" %>
+</div>
+
+<div class="field">
+<%= form.label :suite_number, class: "label" %>
+<%= form.text_field :suiteNumber, class: "input" %>
+</div>
+
+<div class="field">
+<%= form.label :state, class: "label" %>
+<%= form.text_field :state, class: "input" %>
+</div>
+
+<div class="mb-4">
+<%= form.label :city, class: "label" %>
+<%= form.text_field :city, class: "input" %>
+</div>
+
+<div class="mb-4">
+<%= form.label :zipcode, class: "label" %>
+<%= form.text_field :zipcode, class: "input" %>
+</div>
+
+<div class="mb-6">
+<%= form.label :date_and_time, class: "label" %>
+<div class="flex items-center justify-between max-w-md">
+  <%= form.datetime_select :appDate, { start_day: Date.today, start_year: Date.today.year, ampm: true, minute_step: 120, start_hour: 8, end_hour: 20 }, { class: "select py-2 px-2 mr-2" } %>
+</div>
+</div>
+
+
+<div class="mb-4">
+<%= form.label :duration_in_minutes, class: "label" %>
+<%= collection_select(:app_schedule, :appduration_id, AppDuration.all, :id, :duration, {}) %>
+</div>
+
+<div class="mb-4">
+<%= form.label :service, class: "label" %>
+<%= collection_select(:app_schedule, :service_id, Service.all, :id, :serviceName, {}) %>
+</div>
+
+<div class="mb-4">
+<%= form.label :massage_requirement, class: "label" %>
+<%= collection_select(:app_schedule, :specialrequirement_id, SpecialRequirement.all, :id, :requirementDesc, {}) %>
+</div>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
