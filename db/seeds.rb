@@ -29,7 +29,7 @@ duration.duration = 90
 duration.durationPrice = 120
 duration.save!
 
-duration2 = Appduration.new
+duration2 = AppDuration.new
 duration2.duration = 120
 duration2.durationPrice = 150
 duration2.save!
