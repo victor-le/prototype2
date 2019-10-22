@@ -10,7 +10,7 @@ class CreateAppSchedules < ActiveRecord::Migration[6.0]
       t.datetime :appDate
       t.integer :user_id
       t.integer :service_id
-      t.integer :addduration_id
+      t.integer :appduration_id
       t.integer :specialrequirement_id
 
       t.index ["user_id"], name: "index_app_schedules_on_user_id"

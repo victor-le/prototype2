@@ -40,13 +40,13 @@ ActiveRecord::Schema.define(version: 2019_10_20_171404) do
     t.datetime "appDate"
     t.integer "user_id"
     t.integer "service_id"
-    t.integer "addDuration_id"
-    t.integer "specialRequirement_id"
+    t.integer "addduration_id"
+    t.integer "specialrequirement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"appDuration_id\"", name: "index_app_schedules_on_appDuration_id"
+    t.index "\"appduration_id\"", name: "index_app_schedules_on_appduration_id"
     t.index ["service_id"], name: "index_app_schedules_on_service_id"
-    t.index ["specialRequirement_id"], name: "index_app_schedules_on_specialRequirement_id"
+    t.index ["specialrequirement_id"], name: "index_app_schedules_on_specialrequirement_id"
     t.index ["user_id"], name: "index_app_schedules_on_user_id"
   end
 
