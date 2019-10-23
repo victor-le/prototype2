@@ -38,6 +38,8 @@ class AppSchedulesController < ApplicationController
       if @app_schedule.save
         format.html { redirect_to @app_schedule, notice: 'Appointment was successfully scheduled.' }
         format.json { render :show, status: :created, location: @app_schedule }
+        AppointmentMailer.with(app_schedule: @app_schedule, user: current_user).appointment_scheduled.deliver_later
+
       else
         format.html { render :new }
         format.json { render json: @app_schedule.errors, status: :unprocessable_entity }

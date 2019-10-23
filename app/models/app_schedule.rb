@@ -1,11 +1,20 @@
 class AppSchedule < ApplicationRecord
-  belongs_to :user
-  belongs_to :service
-  belongs_to :app_duration, optional: true
-  belongs_to :special_requirement, optional: true
+ # after_create :send_appointment_email
+  belongs_to :user,
+             foreign_key: "user_id"
+  belongs_to :service,
+             foreign_key: "service_id" 
+  belongs_to :app_duration,
+             foreign_key: "appduration_id" 
+  belongs_to :special_requirement,
+             foreign_key: "specialrequirement_id" 
 
   def start_time
     self.appDate
   end
+
+  #def send_appointment_email
+   # AppointmentMailer.appointment_scheduled(app_schedule: self, user: self.user).deliver
+  #end
 
 end

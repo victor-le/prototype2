@@ -14,6 +14,16 @@
         <span class="font-bold"><%= @app_schedule.city %> </span>
         <span class="font-bold"><%= @app_schedule.state %> </span>
         <span class="font-bold"><%= @app_schedule.zipcode %></span>
+        <br>
+        Service: <span class="font-bold"><%= @app_schedule.service.serviceName %></span>
+        <br>
+        Service Price: <span class="font-bold"><%= @app_schedule.service.servicePrice %></span>
+        <br>
+        Duration(Minutes): <span class="font-bold"><%= @app_schedule.app_duration.duration %></span>
+        <br>
+        Duration Price: <span class="font-bold"><%= @app_schedule.app_duration.durationPrice %></span>
+        <br>
+        Pressure Intensity: <span class="font-bold"><%= @app_schedule.special_requirement.requirementDesc %></span>
 
 
 

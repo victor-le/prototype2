@@ -22,7 +22,7 @@
           <td style="text-align: center">
             <%= image_tag 'schedule.svg', width: 200 %>
             <h1 style="font-size: 22px; ">Welcome to HandsOfLyfe, <%= @user.name %></h1>
-            <p style="font-size: 18px; line-height: 24px;">You have successfully scheduled your session.</p>
+            <p style="font-size: 18px; line-height: 24px;">You have successfully scheduled your appointment.</p>
           </td>
         </tr>
       </table>
@@ -33,7 +33,7 @@
         <tr>
           <th style="text-align: left; font-size: 14px;">Service:</th>
           <th style="text-align: left; font-size: 14px;">Starts:</th>
-          <th style="text-align: left; font-size: 14px;">Duration:</th>
+          <th style="text-align: left; font-size: 14px;">Duration (Minutes):</th>
           <th style="text-align: left; font-size: 14px;">Location:</th>
           <th style="text-align: left; font-size: 14px;">Service Charge:</th>
           <th style="text-align: left; font-size: 14px;">Time Duration Charge:</th>
@@ -48,7 +48,7 @@
             <p><%= @app_schedule.city%></p>
             <p><%= @app_schedule.state%></p>
             <p><%= @app_schedule.zipcode%></p></td>
-          <td><p><%= @app_schedule.service.servicePrice %></p></td>
+            <td><p><%= @app_schedule.service.servicePrice %></p></td>
           <td><p><%= @app_schedule.app_duration.durationPrice %></p></td>
         </tr>
         </tbody>
