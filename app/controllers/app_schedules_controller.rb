@@ -1,7 +1,7 @@
 class AppSchedulesController < ApplicationController
   before_action :authenticate_user!
-  before_action :must_be_admin, only: [:active_sessions]
   before_action :set_app_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :must_be_admin, only: [:active_sessions]
 
   # GET /app_schedules
   # GET /app_schedules.json
