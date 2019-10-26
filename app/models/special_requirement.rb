@@ -1,3 +1,3 @@
 class SpecialRequirement < ApplicationRecord
-    has_many :app_schedules, dependent: :destroy
+    has_many :app_schedules
 end

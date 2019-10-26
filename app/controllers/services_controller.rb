@@ -1,5 +1,7 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :must_be_admin, only: [:active_sessions]
 
   # GET /services
   # GET /services.json

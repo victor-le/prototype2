@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_20_171404) do
+ActiveRecord::Schema.define(version: 2019_10_26_164958) do
 
   create_table "app_addresses", force: :cascade do |t|
     t.string "homeType"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 2019_10_20_171404) do
     t.integer "zipcode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "app_schedule_id"
+    t.index ["app_schedule_id"], name: "index_app_addresses_on_app_schedule_id"
+    t.index ["user_id"], name: "index_app_addresses_on_user_id"
   end
 
   create_table "app_durations", force: :cascade do |t|
@@ -44,6 +48,9 @@ ActiveRecord::Schema.define(version: 2019_10_20_171404) do
     t.integer "specialrequirement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "app_time_id"
+    t.string "comment"
+    t.index ["app_time_id"], name: "index_app_schedules_on_app_time_id"
     t.index ["appduration_id"], name: "index_app_schedules_on_appduration_id"
     t.index ["service_id"], name: "index_app_schedules_on_service_id"
     t.index ["specialrequirement_id"], name: "index_app_schedules_on_specialrequirement_id"
@@ -54,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_10_20_171404) do
     t.datetime "appDate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "booked", default: false, null: false
   end
 
   create_table "client_addresses", force: :cascade do |t|
@@ -115,6 +123,9 @@ ActiveRecord::Schema.define(version: 2019_10_20_171404) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "app_addresses", "app_schedules"
+  add_foreign_key "app_addresses", "users"
+  add_foreign_key "app_schedules", "app_times"
   add_foreign_key "client_addresses", "appaddresses"
   add_foreign_key "client_addresses", "clients"
 end

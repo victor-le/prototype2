@@ -1,5 +1,7 @@
 class SpecialRequirementsController < ApplicationController
   before_action :set_special_requirement, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :must_be_admin, only: [:active_sessions]
 
   # GET /special_requirements
   # GET /special_requirements.json

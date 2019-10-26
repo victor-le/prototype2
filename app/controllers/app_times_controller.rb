@@ -1,10 +1,14 @@
 class AppTimesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_app_time, only: [:show, :edit, :update, :destroy]
+  before_action :must_be_admin, only: [:index, :new, :edit, :show, :destory, :update]
 
   # GET /app_times
   # GET /app_times.json
   def index
+    if current_user.admin?
     @app_times = AppTime.all
+    end
   end
 
   # GET /app_times/1
@@ -70,5 +74,11 @@ class AppTimesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def app_time_params
       params.require(:app_time).permit(:appDate)
+    end
+
+    def must_be_admin
+      unless current_user.admin?
+        redirect_to app_schedules_path, alert: "You don't have access to this page"
+      end
     end
 end

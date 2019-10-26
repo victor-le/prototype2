@@ -1,7 +1,7 @@
 class AppSchedulesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_app_schedule, only: [:show, :edit, :update, :destroy]
   before_action :must_be_admin, only: [:active_sessions]
+  before_action :set_app_schedule, only: [:show, :edit, :update, :destroy]
 
   # GET /app_schedules
   # GET /app_schedules.json
@@ -32,13 +32,16 @@ class AppSchedulesController < ApplicationController
   def create
     @app_schedule = AppSchedule.new(app_schedule_params)
     @app_schedule.user_id = current_user.id
+#   
 
 
     respond_to do |format|
       if @app_schedule.save
         format.html { redirect_to @app_schedule, notice: 'Appointment was successfully scheduled.' }
         format.json { render :show, status: :created, location: @app_schedule }
-        AppointmentMailer.with(app_schedule: @app_schedule, user: current_user).appointment_scheduled.deliver_later
+        @app_schedule.app_time.update_attribute(:booked, true)
+        #AppointmentMailer.with(app_schedule: @app_schedule, user: current_user).appointment_scheduled.deliver_later
+        #address = AppAddress.create!(homeType: homeType, homeAddress: homeAddress, suiteNumber: suiteNumber, state: state, city: city, zipcode: zipcode, user_id: current_user, app_schedule_id: @app_schedule.id)
 
       else
         format.html { render :new }
@@ -46,6 +49,7 @@ class AppSchedulesController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /app_schedules/1
   # PATCH/PUT /app_schedules/1.json
@@ -66,6 +70,7 @@ class AppSchedulesController < ApplicationController
   def destroy
     @app_schedule.destroy
     respond_to do |format|
+      @app_schedule.app_time.update_attribute(:booked, false)
       format.html { redirect_to app_schedules_url, notice: 'Appointment schedule was successfully destroyed.' }
       format.json { head :no_content }
     end
@@ -83,7 +88,7 @@ class AppSchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def app_schedule_params
-      params.require(:app_schedule).permit(:homeAddress, :homeType, :suiteNumber, :city, :state, :zipcode, :appDate, :user_id, :service_id, :appduration_id, :specialrequirement_id)
+      params.require(:app_schedule).permit(:homeAddress, :homeType, :suiteNumber, :city, :state, :zipcode, :appDate, :user_id, :service_id, :appduration_id, :specialrequirement_id, :app_time_id)
     end
 
   def must_be_admin
@@ -91,4 +96,11 @@ class AppSchedulesController < ApplicationController
       redirect_to app_schedules_path, alert: "You don't have access to this page"
     end
   end
+
+  #def book
+    #@invoice = Invoice.update(params[id], payment_total: "20", due_amount: "10", data: clonedata.to_json)
+    #@app_time = AppTime.update(params[id], booked: "true")
+   # app_time = AppTime.find(params[:app_time_id])
+    #app_time.update_attribute(:booked, 'true')
+#end
 end

@@ -1,5 +1,7 @@
 class AppAddressesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_app_address, only: [:show, :edit, :update, :destroy]
+  before_action :must_be_admin, only: [:index, :new, :edit, :show, :destory, :update]
 
   # GET /app_addresses
   # GET /app_addresses.json
@@ -70,5 +72,11 @@ class AppAddressesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def app_address_params
       params.require(:app_address).permit(:homeType, :homeAddress, :suiteNumber, :state, :city, :zipcode)
+    end
+
+    def must_be_admin
+      unless current_user.admin?
+        redirect_to app_schedules_path, alert: "You don't have access to this page"
+      end
     end
 end

@@ -1,5 +1,7 @@
 class AppDurationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_app_duration, only: [:show, :edit, :update, :destroy]
+  before_action :must_be_admin, only: [:index, :new, :edit, :show, :destory, :update]
 
   # GET /app_durations
   # GET /app_durations.json
@@ -70,5 +72,10 @@ class AppDurationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def app_duration_params
       params.require(:app_duration).permit(:duration, :durationPrice)
+    end
+    def must_be_admin
+      unless current_user.admin?
+        redirect_to app_schedules_path, alert: "You don't have access to this page"
+      end
     end
 end

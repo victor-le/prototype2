@@ -8,7 +8,7 @@
 
     <div class="border p-6 bg-grey-lighter mb-5 flex items-center justify-between">
       <p class="border-2 py-3 px-4 border-indigo rounded-full text-sm text-indigo">
-        Appointment time: <span class="font-bold"><%= readable_time(@app_schedule.appDate) %></span>
+        Appointment time: <span class="font-bold"><%= readable_time(@app_schedule.app_time.appDate) %></span>
         <br>
         Address: <span class="font-bold"><%= @app_schedule.homeAddress %></span>
         <span class="font-bold"><%= @app_schedule.city %> </span>
@@ -24,6 +24,8 @@
         Duration Price: <span class="font-bold"><%= @app_schedule.app_duration.durationPrice %></span>
         <br>
         Pressure Intensity: <span class="font-bold"><%= @app_schedule.special_requirement.requirementDesc %></span>
+        <br>
+        Test: <span class="font-bold"><%= @app_schedule.app_time.booked %></span>
 
 
 

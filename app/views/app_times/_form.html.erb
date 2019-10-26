@@ -11,9 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :appDate %>
-    <%= form.datetime_select :appDate %>
+ <div class="mb-6">
+    <%= form.label :set_an_appointment_time, class: "label" %>
+    <div class="flex items-center justify-between max-w-md">
+      <%= form.datetime_select :appDate, { start_day: Date.today, ampm: true, minute_step: 15, start_hour: 8, end_hour: 20, start_month: Date.today.month, discard_year: true }, { class: "select py-2 px-2 mr-2" } %>
+    </div>
   </div>
 
   <div class="actions">

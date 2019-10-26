@@ -12,33 +12,38 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :homeAddress %>
-    <%= form.text_field :homeAddress %>
+    <%= form.label :Address, class: "label" %>
+    <%= form.text_field :homeAddress, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :homeType %>
-    <%= form.text_field :homeType %>
+    <%= form.label :home_type, class: "label" %>
+    <%= form.text_field :homeType, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :suiteNumber %>
-    <%= form.text_field :suiteNumber %>
+    <%= form.label :suite_number, class: "label" %>
+    <%= form.text_field :suiteNumber, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.label :city, class: "label" %>
+    <%= form.text_field :city, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state %>
+    <%= form.label :state, class: "label" %>
+    <%= form.text_field :state, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :zipcode %>
-    <%= form.text_field :zipcode %>
+    <%= form.label :zipcode, class: "label" %>
+    <%= form.text_field :zipcode, class: "input" %>
+  </div>
+
+    <div class="field">
+    <%= form.label :comment, class: "label" %>
+    <%= form.text_field :comment, class: "input" %>
   </div>
 
   <div class="mb-4">
@@ -52,20 +57,17 @@
   </div>
 
   <div class="mb-4">
-    <%= form.label :massage_requirement, class: "label" %>
+    <%= form.label :massage_intensity, class: "label" %>
     <%= collection_select(:app_schedule, :specialrequirement_id, SpecialRequirement.all, :id, :requirementDesc, {}) %>
   </div>
 
-
-  <div class="mb-6">
-    <%= form.label :date_and_time, class: "label" %>
-    <div class="flex items-center justify-between max-w-md">
-      <%= form.datetime_select :appDate, { start_day: Date.today, start_year: Date.today.year, ampm: true, minute_step: 120, start_hour: 8, end_hour: 20 }, { class: "select py-2 px-2 mr-2" } %>
-    </div>
+  <div class="mb-4">
+    <%= form.label :select_appointment_time, class: "label" %>
+    <%= collection_select(:app_schedule, :app_time_id, AppTime.where(booked: false), :id, :short_time, {}) %>
   </div>
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Schedule Your Appointment" %>
   </div>
 <% end %>
