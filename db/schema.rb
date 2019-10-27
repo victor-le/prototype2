@@ -10,22 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_26_164958) do
-
-  create_table "app_addresses", force: :cascade do |t|
-    t.string "homeType"
-    t.string "homeAddress"
-    t.string "suiteNumber"
-    t.string "state"
-    t.string "city"
-    t.integer "zipcode"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.integer "app_schedule_id"
-    t.index ["app_schedule_id"], name: "index_app_addresses_on_app_schedule_id"
-    t.index ["user_id"], name: "index_app_addresses_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2019_10_27_015408) do
 
   create_table "app_durations", force: :cascade do |t|
     t.integer "duration"
@@ -62,25 +47,6 @@ ActiveRecord::Schema.define(version: 2019_10_26_164958) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "booked", default: false, null: false
-  end
-
-  create_table "client_addresses", force: :cascade do |t|
-    t.integer "client_id", null: false
-    t.integer "appaddress_id", null: false
-    t.string "comments"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["appaddress_id"], name: "index_client_addresses_on_appaddress_id"
-    t.index ["client_id"], name: "index_client_addresses_on_client_id"
-  end
-
-  create_table "clients", force: :cascade do |t|
-    t.string "clientFName"
-    t.string "clientLName"
-    t.string "clientEmail"
-    t.string "clientPhone"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -123,9 +89,5 @@ ActiveRecord::Schema.define(version: 2019_10_26_164958) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "app_addresses", "app_schedules"
-  add_foreign_key "app_addresses", "users"
   add_foreign_key "app_schedules", "app_times"
-  add_foreign_key "client_addresses", "appaddresses"
-  add_foreign_key "client_addresses", "clients"
 end

@@ -40,8 +40,9 @@ class AppSchedulesController < ApplicationController
         format.html { redirect_to @app_schedule, notice: 'Appointment was successfully scheduled.' }
         format.json { render :show, status: :created, location: @app_schedule }
         @app_schedule.app_time.update_attribute(:booked, true)
+        #method from AppointmentMailer that is supposed to prepare mail to be sent
         #AppointmentMailer.with(app_schedule: @app_schedule, user: current_user).appointment_scheduled.deliver_later
-        #address = AppAddress.create!(homeType: homeType, homeAddress: homeAddress, suiteNumber: suiteNumber, state: state, city: city, zipcode: zipcode, user_id: current_user, app_schedule_id: @app_schedule.id)
+       
 
       else
         format.html { render :new }

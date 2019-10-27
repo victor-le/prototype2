@@ -3,12 +3,9 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :app_schedules
   resources :special_requirements
-  resources :client_addresses
   resources :app_times
   resources :app_durations
-  resources :app_addresses
   resources :services
-  resources :clients
   resources :users, only: [:index]
     authenticate :user, lambda { |u| u.admin? } do
       mount Sidekiq::Web => '/sidekiq'
