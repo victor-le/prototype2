@@ -98,10 +98,5 @@ class AppSchedulesController < ApplicationController
     end
   end
 
-  #def book
-    #@invoice = Invoice.update(params[id], payment_total: "20", due_amount: "10", data: clonedata.to_json)
-    #@app_time = AppTime.update(params[id], booked: "true")
-   # app_time = AppTime.find(params[:app_time_id])
-    #app_time.update_attribute(:booked, 'true')
-#end
+
 end

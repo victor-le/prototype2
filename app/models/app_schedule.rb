@@ -12,16 +12,17 @@ class AppSchedule < ApplicationRecord
              foreign_key: "app_time_id"
              
 
-#  has_many :app_addresses
+  validates :homeAddress, presence: true
+  validates :homeType, presence: true
+  validates :state, presence: true, length: {maximum: 2}
+  validates :city, presence: true
+  validates :zipcode, presence: true
+
 
   def start_time
     self.app_time.appDate
   end
 
-  #def book
-    #@app_time = AppTime.find(params[:id])
-    #@app_time.update_attribute(:booked, true)
-  #end
   #def send_appointment_email
    # AppointmentMailer.appointment_scheduled(app_schedule: self, user: self.user).deliver
   #end

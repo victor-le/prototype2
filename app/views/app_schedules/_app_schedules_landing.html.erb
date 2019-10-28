@@ -24,8 +24,7 @@
   <div id="all-meetings" class="tab-panel">
 
     <h1>Scheduled Appointments</h1>
-
-    <% app_schedules.each do |app_schedule| %>
+    <% app_schedules.where("appDate > ?", Time.now) do |app_schedule| %>
       <div class="flex flex-wrap items-center justify-start p-4 border-b border-grey-light mb-6">
         <div class="flex-1 flex justify-between">
           <div>
@@ -35,17 +34,17 @@
             <%= readable_time(app_schedule.app_time.appDate) %>
           </div>
         </div>
+        <%= link_to "Cancel Appointment", app_schedule, method: :delete, data: { confirm: "Are you sure?." }, class: "btn btn-destroy ml-4"  if admin? %>
       </div>
-
-      <%#= link_to "Cancel Appointment", app_schedule, method: :delete, data: { confirm: "Are you sure?." }, class: "btn btn-destroy ml-4"  if admin? %>
     <% end %>
   </div>
+
 
 
   <div id="calendar" class="tab-panel active">
     <h2>Appointment Calendar</h2>
     <div id="meeting-calendar">
-      <%= render "calendar", app_schedules: app_schedules  %>
+      <%= render "calendar", app_schedules: app_schedules%>
     </div>
   </div>
 </div>
