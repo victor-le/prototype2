@@ -13,7 +13,7 @@
 </style>
 <body>
 
-<table style="background-color: white; width: 600px; margin-left: auto; margin-right: auto; padding: 40px; border: 1px solid #DDDDDD;">
+<table style="background-color: white; width: 1000px; margin-left: auto; margin-right: auto; padding: 40px; border: 1px solid #DDDDDD;">
   <tbody>
   <tr>
     <td>
@@ -21,10 +21,13 @@
         <tr>
           <td style="text-align: center">
             <%= image_tag 'schedule.svg', width: 200 %>
-            <p style="font-size: 18px; line-height: 24px;">You have successfully scheduled your appointment.</p>
+            <p style="font-size: 18px; line-height: 24px;">You have Updated this Appointment</p>
             <br>
-            <p style="font-size: 18px; line-height: 24px;">Below are the appointment details.</p>
-            <p style="font-size: 18px; line-height: 24px;"><strong>PLEASE CONTACT ANNA FOR CANCELATIONS</strong>.</p>
+             <p style="font-size: 18px; line-height: 24px;">Client Name:<%= @app_schedule.user.name %> .</p>
+            <br>
+            <p style="font-size: 18px; line-height: 24px;">Client Email:<%= @app_schedule.user.email %></p>
+            <br>           
+            <p style="font-size: 18px; line-height: 24px;">Below are the new appointment details.</p>
           </td>
         </tr>
       </table>
@@ -33,12 +36,13 @@
       <table style="display:table; border-collapse: collapse; width: 100%; margin-bottom: 40px;">
         <thead>
         <tr>
+          <th style="text-align: left; font-size: 14px;">Client:</th>
           <th style="text-align: left; font-size: 14px;">Service:</th>
           <th style="text-align: left; font-size: 14px;">Intensity:</th>
           <th style="text-align: left; font-size: 14px;">Starts:</th>
           <th style="text-align: left; font-size: 14px;">Duration (Minutes):</th>
           <th style="text-align: left; font-size: 14px;">Location:</th>
-          <th style="text-align: left; font-size: 14px;">Suite Number:</th>
+          <th style="text-align: left; font-size: 14px;">Home Type:</th>
           <th style="text-align: left; font-size: 14px;">Comment:</th>
           <th style="text-align: left; font-size: 14px;">Service Charge:</th>
           <th style="text-align: left; font-size: 14px;">Time Duration Charge:</th>
@@ -46,12 +50,13 @@
         </thead>
         <tbody>
         <tr>
+          <td><p><%= @app_schedule.user.name %></p></td> 
           <td><p><%= @app_schedule.service.serviceName %></p></td>
           <td><p><%= @app_schedule.special_requirement.requirementDesc %></p></td>
           <td><p><%= readable_time(@app_schedule.app_time.appDate)%></p></td>
           <td><p><%= @app_schedule.app_duration.duration%></p></td>
           <td><p><%= @app_schedule.homeAddress%> <%= @app_schedule.city%> <%= @app_schedule.state%> <%= @app_schedule.zipcode%></p></td>
-          <td><p><%= @app_schedule.suiteNumber%></p></td>
+          <td><p><%= @app_schedule.homeType%></p></td>
           <td><p><%= @app_schedule.comment %></p></td>
           <td><p><%= @app_schedule.service.servicePrice %></p></td>
           <td><p><%= @app_schedule.app_duration.durationPrice %></p></td>

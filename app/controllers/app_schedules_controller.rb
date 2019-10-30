@@ -37,11 +37,13 @@ class AppSchedulesController < ApplicationController
 
     respond_to do |format|
       if @app_schedule.save
-        format.html { redirect_to @app_schedule, notice: 'Appointment was successfully scheduled.' }
+        format.html { redirect_to @app_schedule, notice: 'Appointment was successfully scheduled. Please check your email for confirmation!' }
         format.json { render :show, status: :created, location: @app_schedule }
         @app_schedule.app_time.update_attribute(:booked, true)
         #method from AppointmentMailer that is supposed to prepare mail to be sent
-        #AppointmentMailer.with(app_schedule: @app_schedule, user: current_user).appointment_scheduled.deliver_later
+        AppointmentMailer.with(app_schedule: @app_schedule).notify_appointment.deliver!
+        AppointmentMailer.with(app_schedule: @app_schedule, user: current_user).appointment_scheduled.deliver!
+        #AppointmentMailer.with(app_schedule: @app_schedule, user: current_user).appointment_scheduled.deliver!
        
 
       else
@@ -57,7 +59,9 @@ class AppSchedulesController < ApplicationController
   def update
     respond_to do |format|
       if @app_schedule.update(app_schedule_params)
-        format.html { redirect_to @app_schedule, notice: 'Appointment schedule was successfully updated.' }
+        AppointmentMailer.with(app_schedule: @app_schedule).update_appointment.deliver!
+        AppointmentMailer.with(app_schedule: @app_schedule).notify_appointment_update.deliver!
+        format.html { redirect_to @app_schedule, notice: 'Appointment was successfully updated.' }
         format.json { render :show, status: :ok, location: @app_schedule }
       else
         format.html { render :edit }
@@ -72,13 +76,15 @@ class AppSchedulesController < ApplicationController
     @app_schedule.destroy
     respond_to do |format|
       @app_schedule.app_time.update_attribute(:booked, false)
-      format.html { redirect_to app_schedules_url, notice: 'Appointment schedule was successfully destroyed.' }
+      AppointmentMailer.with(app_schedule: @app_schedule).cancel_appointment.deliver!
+      AppointmentMailer.with(app_schedule: @app_schedule).notify_appointment_cancel.deliver!
+      format.html { redirect_to app_schedules_url, notice: 'Appointment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   def active_sessions
-    @active_sessions = AppSchedule.where("appDate < ?", Time.now)
+    @active_sessions = AppSchedule.where("appDate > ?", Time.now)
   end
 
   private
@@ -89,7 +95,7 @@ class AppSchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def app_schedule_params
-      params.require(:app_schedule).permit(:homeAddress, :homeType, :suiteNumber, :city, :state, :zipcode, :appDate, :user_id, :service_id, :appduration_id, :specialrequirement_id, :app_time_id)
+      params.require(:app_schedule).permit(:homeAddress, :homeType, :suiteNumber, :city, :state, :zipcode, :comment, :appDate, :user_id, :service_id, :appduration_id, :specialrequirement_id, :app_time_id)
     end
 
   def must_be_admin

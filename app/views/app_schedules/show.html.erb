@@ -3,6 +3,7 @@
 
     <div class="flex flex-wrap justify-between items-center mb-5">
       <h1><%= @app_schedule.user.name %></h1>
+      <%= link_to 'Edit', edit_app_schedule_path(@app_schedule), class: "btn btn-destroy"  if admin? %>
       <%= link_to "Cancel Appointment", app_schedule_path(@app_schedule), method: :delete, data: { confirm: "Are you sure you want to cancel? "}, class: "btn btn-destroy" if admin? %>
     </div>
 
@@ -15,8 +16,8 @@
         <span class="font-bold"><%= @app_schedule.state %> </span>
         <span class="font-bold"><%= @app_schedule.zipcode %></span>
         <br>
-        <br>
         Comment: <span class="font-bold"><%= @app_schedule.comment %></span>
+        <br>
         Service: <span class="font-bold"><%= @app_schedule.service.serviceName %></span>
         <br>
         Service Price: <span class="font-bold"><%= @app_schedule.service.servicePrice %></span>
@@ -27,7 +28,6 @@
         <br>
         Pressure Intensity: <span class="font-bold"><%= @app_schedule.special_requirement.requirementDesc %></span>
         <br>
-        Test: <span class="font-bold"><%= @app_schedule.app_time.booked %></span>
 
 
 

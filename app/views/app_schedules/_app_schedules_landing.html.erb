@@ -24,7 +24,7 @@
   <div id="all-meetings" class="tab-panel">
 
     <h1>Scheduled Appointments</h1>
-    <% app_schedules.where("appDate > ?", Time.now) do |app_schedule| %>
+    <% app_schedules.each do |app_schedule| %>
       <div class="flex flex-wrap items-center justify-start p-4 border-b border-grey-light mb-6">
         <div class="flex-1 flex justify-between">
           <div>
