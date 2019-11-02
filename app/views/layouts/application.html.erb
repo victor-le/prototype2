@@ -1,7 +1,19 @@
+<!--
+TODO:
+Ask Victor how the calendar works
+Split Name into FirstName and LastName fields
+Remove Username field or remove form insert and ignore in DB
+Add Disclaimer/Cancellation content
+Add Phone Number
+Add Email Contact form
+Add Services sheet and Pricing
+Pricing needs to be done in ruby code (for additional services etc)
+-->
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Prototype</title>
+    <title>HandsOfLyfe Massage</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,7 +26,7 @@
 
   </head>
 
- <body class="bg-white">
+ <body class="bg-gray-100">
 
   <% flash.each do |type, message| %>
     <% if type == "alert" %>
@@ -29,40 +41,60 @@
     <% end %>
   <% end %>
 
-    <header class="mb-4">
-      <nav class="flex items-center justify-between flex-wrap bg-gray-100 py-3 lg:px-10 px-3 text-gray-700 border-b border-gray-400">
-        <div class="flex items-center flex-no-shrink mr-6">
-          <%= link_to "HandsOfLyfe", root_path, class:"link text-xl tracking-tight font-semibold" %>
-        </div>
-        <div class="block lg:hidden">
-          <button class="flex items-center px-3 py-2 border rounded text-grey border-gray-500 hover:text-gray-600 hover:border-gray-600">
-            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-          </button>
-        </div>
-        <div class="w-full block lg:flex-1 lg:flex items-center text-center lg:text-left">
-          <div class="lg:flex-grow">
-          <div class="w-full block lg:flex lg:flex-row lg:flex-1 mt-2 lg:mt-0 text-center lg:text-left lg:justify-end items-center">
-            <% if user_signed_in? %>
-              <p>Logged in as:  <strong><%= current_user.username %></strong>. </p>
-              <%= link_to "Dashboard", app_schedules_path, class: "btn btn-default mr-2" %>
-              <%= link_to "Schedule an Appointment", new_app_schedule_path, class: "btn btn-default mr-2" unless admin? %>
-              <%= link_to "Set up Times", app_times_path, class: "btn btn-default mr-2" if admin? %>
-              <%= link_to "Services", services_path, class: "btn btn-default mr-2" if admin? %>
-              <%= link_to "Time Durations", app_durations_path, class: "btn btn-default mr-2" if admin? %>
-              <%= link_to "Massage Requirements", special_requirements_path, class: "btn btn-default mr-2" if admin? %>
-              <%= link_to "Users", users_path, class: "btn btn-default mr-2" if admin? %>
-             <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"btn btn-default mb-2 lg:mr-2 lg:mb-0 block" %>
-            <% else %>
-              <%= link_to "Login", new_user_session_path, class:"btn btn-default mb-2 lg:mr-2 lg:mb-0 block" %>
-            <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-default block" %>
-            <% end %>
-          </div>
-        </div>
-      </nav>
-    </header>
+  <nav class="flex flex-wrap lg:flex-none items-center justify-between bg-gray-100 p-6">
+    <div class="w-auto text-purple-700 text-2xl font-semibold lg:ml-12">
+      <%= link_to "HandsOfLyfe", root_path%>
+    </div>
+    <% if user_signed_in? %>
+      <div class="w-auto text-purple-600 text-right">
+        Welcome, <%= current_user.name %>
+      </div>
+    <% else %>
+    <% end %>
+    <div class="block lg:hidden mr-8">
+      <button id="nav-toggle" class="flex items-center px-3 py-2 rounded text-purple-600 border border-purple-600">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+      </button>
+    </div>
+    <div class="hidden w-full flex-grow lg:flex lg:flex-none lg:w-auto lg:items-center pt-6 lg:pt-0" id="nav-content">
+      <ul class="list-reset lg:flex justify-end flex-1 items-center">
+        <li class="mr-2">
+          <a class="inline-block text-gray-600 font-semibold hover:text-purple-700 py-2 px-4" href="/#services">Services</a>
+        </li>
+        <li class="mr-2">
+        <%= link_to "Users", users_path, class: "inline-block text-gray-600 font-semibold hover:text-purple-700 py-2 px-4" if admin? %>
+        </li>
+        <li class="mr-2">
+        <%= link_to "Schedule an Appointment", new_app_schedule_path, class: "inline-block text-gray-600 font-semibold hover:text-purple-700 py-2 px-4" %>
+        </li>
+        <% if user_signed_in? %>
+        <li class="mr-2">
+          <%= link_to "My Appointments", app_schedules_path, class: "inline-block text-gray-600 font-semibold hover:text-purple-700 py-2 px-4" %>
+        </li>
+        <% else %>
+        <% end %>
+      </ul>
+      <% if user_signed_in? %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"cursor-pointer font-semibold bg-purple-300 hover:bg-purple-500 mr-3 px-5 py-2 inline-block text-purple-700 hover:text-purple-900 rounded" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class:"cursor-pointer font-semibold bg-purple-300 hover:bg-purple-500 mr-3 px-5 py-2 inline-block text-purple-700 hover:text-purple-900 rounded" %>
+        <%= link_to "Sign Up", new_user_registration_path, class:"cursor-pointer font-semibold border border-purple-500 hover:border-purple-700 mr-3 px-5 py-2 inline-block text-purple-500 hover:text-purple-700 rounded" %>
+      <% end %>
+    </div>
+  </nav>
 
-    <main class="lg:px-10 px-4">
+  <script>
+      //Javascript to toggle the menu
+      document.getElementById('nav-toggle').onclick = function(){
+          document.getElementById("nav-content").classList.toggle("hidden");
+      }
+  </script>
+
+    <main>
       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
+  <div class="container mx-auto py-3 border-t border-gray-400">
+    sup
+  </div>
   </body>
 </html>

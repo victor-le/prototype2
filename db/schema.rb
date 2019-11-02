@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_27_015408) do
+ActiveRecord::Schema.define(version: 2019_10_26_164958) do
+
+  create_table "app_addresses", force: :cascade do |t|
+    t.string "homeType"
+    t.string "homeAddress"
+    t.string "suiteNumber"
+    t.string "state"
+    t.string "city"
+    t.integer "zipcode"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "app_schedule_id"
+    t.index ["app_schedule_id"], name: "index_app_addresses_on_app_schedule_id"
+    t.index ["user_id"], name: "index_app_addresses_on_user_id"
+  end
 
   create_table "app_durations", force: :cascade do |t|
     t.integer "duration"
@@ -89,5 +104,7 @@ ActiveRecord::Schema.define(version: 2019_10_27_015408) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "app_addresses", "app_schedules"
+  add_foreign_key "app_addresses", "users"
   add_foreign_key "app_schedules", "app_times"
 end
