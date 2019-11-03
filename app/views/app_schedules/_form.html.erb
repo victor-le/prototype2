@@ -11,14 +11,8 @@
     </div>
   <% end %>
 
-  <input
-    type="text"
-    class="block border border-grey-light w-full p-3 rounded mb-4"
-    name="fullname"
-    placeholder="Full Name" />
-
   <div class="field">
-    <%= form.label :Address, type="text", class: "label" %>
+    <%= form.label :Address, class: "label" %>
     <%= form.text_field :homeAddress, class: "input" %>
   </div>
 
@@ -72,8 +66,7 @@
     <%= collection_select(:app_schedule, :app_time_id, AppTime.where(booked: false), :id, :short_time, {}) %>
   </div>
 
-
   <div class="actions">
-    <%= form.submit "Schedule Your Appointment" %>
+    <%= form.submit "Schedule Your Appointment", class:"cursor-pointer font-semibold bg-purple-700 hover:bg-purple-900 text-white mr-3 px-5 py-2 mb-4 inline-block rounded"%>
   </div>
 <% end %>

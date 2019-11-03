@@ -41,7 +41,7 @@ Pricing needs to be done in ruby code (for additional services etc)
     <% end %>
   <% end %>
 
-  <nav class="flex flex-wrap lg:flex-none items-center justify-between bg-gray-100 p-6">
+  <nav class="flex flex-wrap lg:flex-none items-center justify-between bg-gray-100 p-3">
     <div class="w-auto text-purple-700 text-2xl font-semibold lg:ml-12">
       <%= link_to "HandsOfLyfe", root_path%>
     </div>
@@ -59,6 +59,9 @@ Pricing needs to be done in ruby code (for additional services etc)
     <div class="hidden w-full flex-grow lg:flex lg:flex-none lg:w-auto lg:items-center pt-6 lg:pt-0" id="nav-content">
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
         <li class="mr-2">
+          <a class="inline-block text-gray-600 font-semibold hover:text-purple-700 py-2 px-4" href="/#about">About</a>
+        </li>
+        <li class="mr-2">
           <a class="inline-block text-gray-600 font-semibold hover:text-purple-700 py-2 px-4" href="/#services">Services</a>
         </li>
         <li class="mr-2">
@@ -75,10 +78,10 @@ Pricing needs to be done in ruby code (for additional services etc)
         <% end %>
       </ul>
       <% if user_signed_in? %>
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"cursor-pointer font-semibold bg-purple-300 hover:bg-purple-500 mr-3 px-5 py-2 inline-block text-purple-700 hover:text-purple-900 rounded" %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"cursor-pointer font-semibold bg-purple-700 hover:bg-purple-900 text-white mr-3 px-5 py-2 inline-block rounded" %>
       <% else %>
-        <%= link_to "Login", new_user_session_path, class:"cursor-pointer font-semibold bg-purple-300 hover:bg-purple-500 mr-3 px-5 py-2 inline-block text-purple-700 hover:text-purple-900 rounded" %>
-        <%= link_to "Sign Up", new_user_registration_path, class:"cursor-pointer font-semibold border border-purple-500 hover:border-purple-700 mr-3 px-5 py-2 inline-block text-purple-500 hover:text-purple-700 rounded" %>
+        <%= link_to "Login", new_user_session_path, class:"cursor-pointer font-semibold bg-purple-700 hover:bg-purple-900 text-white mr-3 px-5 py-2 inline-block rounded" %>
+        <%= link_to "Sign Up", new_user_registration_path, class:"cursor-pointer font-semibold border border-purple-700 hover:border-purple-900 mr-3 px-5 py-2 inline-block text-purple-700 hover:text-purple-900 rounded" %>
       <% end %>
     </div>
   </nav>
