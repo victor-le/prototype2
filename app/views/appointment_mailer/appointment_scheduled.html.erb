@@ -21,10 +21,11 @@
         <tr>
           <td style="text-align: center">
             <%= image_tag 'schedule.svg', width: 200 %>
-            <p style="font-size: 18px; line-height: 24px;">You have successfully scheduled your appointment.</p>
+
+            <center><p style="font-size: 18px; line-height: 24px;">You have successfully scheduled your appointment at HandsOfLyfe.</p>
             <br>
-            <p style="font-size: 18px; line-height: 24px;">Below are the appointment details.</p>
-            <p style="font-size: 18px; line-height: 24px;"><strong>PLEASE CONTACT ANNA FOR CANCElLATIONS</strong>.</p>
+            <p style="font-size: 18px; line-height: 24px;">Below are the details of your appointment.</p>
+              <p style="font-size: 18px; line-height: 24px;"><strong>For cancellations, please contact Anna Alegria at <a href="tel:832-890-9086">832-890-9086</a></strong>.</p></center>
           </td>
         </tr>
       </table>
@@ -58,25 +59,33 @@
         </tr>
         </tbody>
       </table>
+      <br>
+      <p>As security for the correct fulfilment of this Agreement the HandsOfLyfe client shall pay an initial deposit of $20 for appointment travel fees within 24 hours of booking. Failure to do so, may result in the cancellation of the appointment. Please proceed with payment with the following link:
+        <!--paypal link specifically for emails-->
+        <!--paypal button referenced here: https://www.paypal.com/buttons/-->
+        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=handsoflyfe%40gmail%2ecom&lc=US&item_name=Deposit%20%28Credited%20Towards%20Appointment%29&amount=20%2e00&currency_code=USD&button_subtype=services&bn=PP%2dBuyNowBF%3abtn_paynowCC_LG%2egif%3aNonHosted">Pay Deposit</a> </p>
+      <br>
+      <br>
 
-      <p></p>
-      <p>To login to the site, just follow this link: <%= link_to "Login", new_user_session_url %>.</p>
-      <p>Thank you and have a great day!</p>
+    <!--paypall button-->
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+      </form>
+      <br>
+      <!--end of paypal button script------------------------------------------------------------------------>
+      </div>
+
+      <p>To login to the site, just follow this link: <%= link_to "Login to HandsOfLyfe", new_user_session_url %>.</p>
+      <p>Thank you and have a blessed day! See you soon!</p>
     </td>
   </tr>
   </tbody>
 </table>
 
-<!--paypal button: referenced https://www.paypal.com/cgi-bin/webscr?cmd=_button-designer&button_type=buynow&flowloggingId=62254993d9456---------------------------------------------------------------------------->
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-  <input type="hidden" name="cmd" value="_s-xclick">
-  <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
-  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-<br>
-<!--end of paypal button script------------------------------------------------------------------------>
-</div>
+
 
 
 </body>
