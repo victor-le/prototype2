@@ -24,6 +24,36 @@ Pricing needs to be done in ruby code (for additional services etc)
     <%= stylesheet_pack_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
 
+<style>
+.insta-icon {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 500px;
+  padding: 10px;
+  /* transform: scale(1.45); */
+  background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf)
+}
+.insta-icon:after,
+.insta-icon:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #fff;
+  transform: translate(-50%, -50%);
+  content: ''
+}
+.insta-icon:before {
+  border-radius: 20%
+}
+.insta-icon:after {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%
+}
+  </style>
   </head>
 
  <body class="bg-gray-100">
@@ -96,8 +126,7 @@ Pricing needs to be done in ruby code (for additional services etc)
     <main>
       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
-  <div class="container mx-auto py-3 border-t border-gray-400">
-    sup
+
   </div>
   </body>
 </html>
