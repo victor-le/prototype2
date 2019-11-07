@@ -16,7 +16,7 @@ end
 
 def update_appointment
     @app_schedule = params[:app_schedule]
-    mail(to: @app_schedule.user.email, subject: "Your Appointment has Updated")
+    mail(to: @app_schedule.user.email, subject: "Your Appointment has been Updated")
 end
 
 def notify_appointment
