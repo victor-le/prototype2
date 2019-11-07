@@ -1,12 +1,43 @@
-<a href="#" class="cursor-pointer w-12 h-12 text-center text-xl font-black bg-purple-700 hover:bg-purple-900 text-white p-3 rounded-full fixed z-10 bottom-0 right-0 m-3">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+<style>
+  .modal {
+    transition: opacity 0.25s ease;
+  }
+  body.modal-active {
+    overflow-x: hidden;
+    overflow-y: visible !important;
+  }
+
+</style>
+
+
+<a href="#" class="cursor-pointer w-12 h-12 text-center text-xl font-black bg-pink-700 hover:bg-pink-900 text-white p-3 rounded-full fixed z-10 bottom-0 right-0 m-3">
   ^
 </a>
 
-<div class="flex flex-col justify-center bg-fixed bg-center lg:h-160 h-120 w-full" style="background-image: url(/assets/flower-hands.jpg)">
-  <h1 class="text-4xl text-white text-center font-bold">HandsOfLyfe</h1>
-  <h2 class="text-3xl text-white text-center font-bold">Massage and Therapy</h2>
+<div class="flex flex-col justify-center bg-fixed bg-center lg:h-160 h-120 w-full" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(/assets/flower-hands.jpg); background-size: cover;">
+  <div style="font-family: 'Marthin Slant', serif; line-height:0px; padding-bottom: 7px; width: 100%;">
+      <h1 class="text-6xl text-white text-center font-bold">HandsOfLyfe</h1>
+  </div>
+  <div style="margin-top: 10px; font-family: 'Adam', serif; letter-spacing: 8px;";>
+    <br><br>
+      <h2 class="text-2xl text-white text-center font-bold">MASSAGE THERAPY</h2>
+  </div>
 </div>
 
+<div class="py-8 m-auto text-center text-4xl text-gray-800 tracking-wider font-bold border-b border-gray-400">
+  <h1 id="about">How It Works</h1>
+</div>
+
+    <div class="px-4 lg:px-0 m-auto mt-8 lg:max-w-4xl flex flex-wrap items-start justify-between text-gray-700">
+
+      <p class="mt-2"><center>HandsOfLyfe specializes in personalizing each massage for its clients. Each client is different and every massage changes for their wants and needs. We will discuss what problem areas to focus on, health history, and range of motion/posture assessments during this time.</p></center>
+
+    </div>
+
+
+
+<br><br>
 <div class="py-8 m-auto text-center text-4xl text-gray-800 tracking-wider font-bold border-b border-gray-400">
   <h1 id="about">About</h1>
 </div>
@@ -21,7 +52,7 @@
       <div class="block lg:hidden rounded-full mx-auto -mt-16 h-48 w-48 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/MP0IUfwrn0A')"></div>
 
       <h1 class="text-3xl font-bold pt-8 lg:pt-0">Anna Alegria</h1>
-      <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-purple-500 opacity-25"></div>
+      <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-pink-500 opacity-25"></div>
       <p class="pt-8 text-sm">Anna Alegria is a graduate from Cortiva Institute of Massage Therapy and Skincare Schools.
         She recently moved from Houston, Texas to Raleigh, North Carolina to pursue her career in another great location.
         She likes to incorporate medium to deep pressure relaxation massage, in with myofascial release and trigger point therapy.
@@ -30,14 +61,114 @@
         Anna believes looking at the body as a whole, mind, body and spirit for optimum performance.</p>
 
       <div class="pt-12 pb-8">
-        <button class="bg-purple-700 hover:bg-purple-900 text-white font-bold py-2 px-4 rounded">
+        <button class="modal-open bg-pink-700 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded">
           Get In Touch
         </button>
-      </div>
 
-    </div>
+      <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+
+        <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+
+          <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+            <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+              <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+            </svg>
+
+          </div>
+          <div class="modal-content py-4 text-left px-6">
+            <!--Title-->
+            <div class="flex justify-between items-center pb-3">
+              <p class="text-2xl font-bold">Let's get in touch!</p><br>
+                <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+
+                </svg>
+              </div>
+            <p>If you have any questions or want to chat.</p>
+            <p></p>
+            <div class="col">
+              <div class="col-container">
+                <!--Insert Contact Form Name and Link here-->
+                <form id="#" action="#">
+                  <!--Insert label for name, field-->
+                  <div class="col">
+                    <label for="#"></label>
+                    <input id='#' name="#" class="inputbox" type="text" placeholder="FIRST AND LAST NAME" required>
+                    <br>
+                    <br>
+
+                    <!--Insert Label for name, field-->
+                    <label for="#"></label>
+                    <input id='#' name="#" class="inputbox" type="text" placeholder="E-MAIL ADDRESS" required>
+                    <br><br>
+
+                    <!--Insert Label for name, field-->
+                    <label for="#"></label>
+                    <input id='#' name="#" class="inputbox" type="text" placeholder="SUBJECT" required>
+                    <br><br>
+                    <!--Insert Label for name, field-->
+                    <label for="#"></label>
+                    <textarea id="#" name="#" class="inputbox" placeholder="MESSAGE" class="expanding" required></textarea>			<br>
+                </form>
+              </div>
+            </div>
+          </div>
+              <br><br>
+
+            <!--Footer-->
+            <div class="flex justify-end pt-2">
+              <button class="px-4 bg-transparent p-3 rounded-lg text-pink-500 hover:bg-gray-100 hover:text-pink-400 mr-2">Send Message</button>
+              <button class="modal-close px-4 bg-pink-500 p-3 rounded-lg text-white hover:bg-pink-400">Close</button>
+            </div>
+
+          </div>
+        </div>
+        </div>
+      </div>
+      <script>
+          var openmodal = document.querySelectorAll('.modal-open')
+          for (var i = 0; i < openmodal.length; i++) {
+              openmodal[i].addEventListener('click', function(event){
+                  event.preventDefault()
+                  toggleModal()
+              })
+          }
+
+          const overlay = document.querySelector('.modal-overlay')
+          overlay.addEventListener('click', toggleModal)
+
+          var closemodal = document.querySelectorAll('.modal-close')
+          for (var i = 0; i < closemodal.length; i++) {
+              closemodal[i].addEventListener('click', toggleModal)
+          }
+
+          document.onkeydown = function(evt) {
+              evt = evt || window.event
+              var isEscape = false
+              if ("key" in evt) {
+                  isEscape = (evt.key === "Escape" || evt.key === "Esc")
+              } else {
+                  isEscape = (evt.keyCode === 27)
+              }
+              if (isEscape && document.body.classList.contains('modal-active')) {
+                  toggleModal()
+              }
+          };
+
+
+          function toggleModal () {
+              const body = document.querySelector('body')
+              const modal = document.querySelector('.modal')
+              modal.classList.toggle('opacity-0')
+              modal.classList.toggle('pointer-events-none')
+              body.classList.toggle('modal-active')
+          }
+
+
+      </script>
 
   </div>
+</div>
 
   <!--Img Col-->
   <div class="w-full lg:w-2/5">
@@ -53,12 +184,26 @@
 </div>
 
 <div class="px-4 lg:px-0 m-auto mt-8 lg:max-w-4xl flex flex-wrap items-start justify-between text-gray-700">
+
+  <p class="mt-2"><center>HandsOfLyfe specializes in personalizing each massage for its clients. Each client is different and every massage changes for their wants and needs. We will discuss what problem areas to focus on, health history, and range of motion/posture assessments during this time.</p></center>
+
+  <div class="flex lg:flex-col lg:w-1/2 md:px-4 pb-4">
+    <div class="w-1/3 lg:w-full">
+      <img class="w-full object-cover h-48 lg:h-64 rounded-lg" src="/assets/HOLclassic.jpeg" alt="HOL Classic">
+    </div>
+
+    <div class="w-2/3 lg:w-auto mt-4 ml-4 lg:ml-0">
+      <div class="tracking-wider text-lg text-pink-600 font-bold">HandsOfLyfe Classic</div>
+      <p class="mt-2">During the session, I like to incorporate aromatherapy, Swedish/calming massage, stretches, deep tissue, and reflexology; all focusing on the client. After our session, I like to form a wellness plan for my client.
+      </p>
+    </div>
+  </div>
   <div class="flex lg:flex-col lg:w-1/2 md:px-4 pb-4">
     <div class="w-1/3 lg:w-full">
       <img class="w-full object-cover h-48 lg:h-64 rounded-lg" src="/assets/hotstone.jpg" alt="Hot Stones">
     </div>
     <div class="w-2/3 lg:w-auto mt-4 ml-4 lg:ml-0">
-      <div class="tracking-wider text-lg text-purple-600 font-bold">Hot Stones</div>
+      <div class="tracking-wider text-lg text-pink-600 font-bold">Hot Stones</div>
       <p class="mt-2">Heat is known for assisting whenever we are suffering from muscle tension and pain.
         This is the same when incorporating hot stones with a massage.
         The muscles are able to "melt" more quickly, thus we are able to penetrate the underlying issues more effectively.
@@ -67,43 +212,52 @@
   </div>
   <div class="flex lg:flex-col lg:w-1/2 md:px-4 pb-4">
     <div class="w-1/3 lg:w-full">
-      <img class="w-full object-cover h-48 lg:h-64 rounded-lg" src="/assets/swedish.jpeg" alt="Swedish">
+      <img class="w-full object-cover h-48 lg:h-64 rounded-lg" src="/assets/swedish-massage.jpg" alt="Swedish">
     </div>
     <div class="w-2/3 lg:w-auto mt-4 ml-4 lg:ml-0">
-      <div class="tracking-wider text-lg text-purple-600 font-bold">Swedish Massage</div>
+      <div class="tracking-wider text-lg text-pink-600 font-bold">Swedish Massage</div>
       <p class="mt-2">Most common form of massage and wonderful for relaxation and rejuvenation!
         Great for increasing blood circulation by bringing oxygen to the muscles, increasing flexibility, and decreasing muscle toxins.</p>
     </div>
   </div>
   <div class="flex lg:flex-col lg:w-1/2 md:px-4 pb-4">
     <div class="w-1/3 lg:w-full">
-      <img class="w-full object-cover h-48 lg:h-64 rounded-lg" src="/assets/deeptissue.jpeg" alt="Deep Tissue">
+      <img class="w-full object-cover h-48 lg:h-64 rounded-lg" src="/assets/deep-tissue.jpg" alt="Deep Tissue">
     </div>
     <div class="w-2/3 lg:w-auto mt-4 ml-4 lg:ml-0">
-      <div class="tracking-wider text-lg text-purple-600 font-bold">Deep Tissue</div>
+      <div class="tracking-wider text-lg text-pink-600 font-bold">Deep Tissue</div>
       <p class="mt-2">Penetrating deeper layers of tissue, releasing muscle tension and treating chronic pain.
         Slower strokes with more focus on a specific area.</p>
     </div>
   </div>
   <div class="flex lg:flex-col lg:w-1/2 md:px-4 pb-4">
     <div class="w-1/3 lg:w-full">
-      <img class="w-full object-cover h-48 lg:h-64 rounded-lg" src="/assets/chairmass.jpeg" alt="Chair Massage">
+      <img class="w-full object-cover h-48 lg:h-64 rounded-lg" src="/assets/chair-massage-therapy.jpeg" alt="Chair Massage">
     </div>
     <div class="w-2/3 lg:w-auto mt-4 ml-4 lg:ml-0">
-      <div class="tracking-wider text-lg text-purple-600 font-bold">Chair Massage Events</div>
+      <div class="tracking-wider text-lg text-pink-600 font-bold">Chair Massage Therapy</div>
       <p class="mt-2">Mobile chair massage, perfect for office settings, large groups, country clubs, or outdoor events!
         Contact for more information.</p>
     </div>
   </div>
   <div class="flex lg:flex-col lg:w-1/2 md:px-4 pb-4">
     <div class="w-1/3 lg:w-full">
-      <img class="w-full object-cover h-48 lg:h-64 rounded-lg" src="/assets/cupping.jpeg" alt="Cupping">
+      <img class="w-full object-cover h-48 lg:h-64 rounded-lg" src="/assets/cupping-therapy.jpg" alt="Cupping">
     </div>
     <div class="w-2/3 lg:w-auto mt-4 ml-4 lg:ml-0">
-      <div class="tracking-wider text-lg text-purple-600 font-bold">Cupping Therapy (Coming Soon)</div>
+      <div class="tracking-wider text-lg text-pink-600 font-bold">Cupping Therapy</div>
       <p class="mt-2">An ancient Eastern therapy that has made its way back into the light for the past few years.
         Cupping helps reduce inflammation by improving blood circulation, thus increasing the recovery and repair process.
         Great for acute and chronic pain!</p>
     </div>
   </div>
 </div>
+
+  <div class="py-8 m-auto text-center text-4xl text-gray-800 tracking-wider font-bold border-b border-gray-400">
+    <h1 id="about">Prices</h1>
+  </div>
+    <div class="px-4 lg:px-0 m-auto mt-8 lg:max-w-4xl flex flex-wrap items-start justify-between text-gray-700">
+
+      <p class="mt-2"><center>HandsOfLyfe specializes in personalizing each massage for its clients. Each client is different and every massage changes for their wants and needs. We will discuss what problem areas to focus on, health history, and range of motion/posture assessments during this time.</p></center>
+     </div>
+
