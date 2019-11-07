@@ -47,6 +47,8 @@
 
     </div>
 
+
+
 <br><br>
 <div class="py-8 m-auto text-center text-4xl text-gray-800 tracking-wider font-bold border-b border-gray-400">
   <h1 id="about">About</h1>
@@ -59,7 +61,6 @@
 
     <div class="p-4 md:p-12 text-center lg:text-left">
       <!-- Image for mobile view-->
-
       <div class="block lg:hidden rounded-full mx-auto -mt-16 h-48 w-48 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/MP0IUfwrn0A')"></div>
 
       <h1 class="text-3xl font-bold pt-8 lg:pt-0">Anna Alegria</h1>
@@ -70,109 +71,133 @@
         Combining this mixture, helps with stress relief, while releasing tension and stiffness in the muscles.
         Anna loves yoga and would like to further her education in Reiki energy work, to expand her knowledge with the body and mind.
         Anna believes looking at the body as a whole, mind, body and spirit for optimum performance.</p>
-      <!--GET IN TOUCH button-->
+
       <div class="pt-12 pb-8">
-        <button class="modal-open bg-pink-700 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded">Get In Touch</button>
-        <!--GET IN TOUCH pop-up window (modal)-->
-              <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
-                <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+        <button class="modal-open bg-pink-700 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded">
+          Get In Touch
+        </button>
 
-                <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+      <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
 
-                  <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
-                    <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                      <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
-                    </svg>
-                  </div>
+        <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
 
-                  <div class="modal-content py-4 text-left px-6">
-                    <!--title-->
-                    <div class="flex justify-between items-center pb-3">
-                      <p class="text-2xl font-bold">Let's get in touch!</p>
-                      <br>
-                        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                        </svg>
-                      </div>
-                      <!--body of the modal-->
-                      <p>If you have any questions or just want to chat.</p>
-                      <div class="col">
-                        <div class="col-container">
-                          <!--contact form-->
-                             <form id="#" action="#"><!--label for first and last name box-->
-                              <div class="col">
-                                <label for="#"></label>
-                                <input id='#' name="#" class="inputbox" type="text" placeholder="FIRST AND LAST NAME" required>
-                                <br>
-                                <br>
-                                <!--label for email address-->
-                                <label for="#"></label>
-                                <input id='#' name="#" class="inputbox" type="text" placeholder="E-MAIL ADDRESS" required>
-                                <br><br>
-                                <!--label for subject-->
-                                <label for="#"></label>
-                                <input id='#' name="#" class="inputbox" type="text" placeholder="SUBJECT (Prices, Services, Availability, etc.)" required>
-                                <br><br>
-                                <!--Insert Label for name, field-->
-                                <label for="#"></label>
-                                <textarea id="#" name="#" class="inputbox" placeholder="MESSAGE" class="expanding" required></textarea>
-                                <br>
-                              </div>
-                             </form>
-                        </div>
-                      </div>
-                  </div>
-                  <br>
-                  <br>
-                  <!--footer of the modal-->
-                  <div class="flex justify-end pt-2">
-                    <button class="px-4 bg-transparent p-3 rounded-lg text-pink-500 hover:bg-gray-100 hover:text-pink-400 mr-2">Send Message</button>
-                    <button class="modal-close px-4 bg-pink-500 p-3 rounded-lg text-white hover:bg-pink-400">Close</button>
-                  </div>
-                </div>
+          <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+            <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+              <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+            </svg>
+
+          </div>
+          <div class="modal-content py-4 text-left px-6">
+            <!--Title-->
+            <div class="flex justify-between items-center pb-3">
+              <p class="text-2xl font-bold">Let's get in touch!</p><br>
+                <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+
+                </svg>
               </div>
-      </div><!--end of GET IN TOUCH pop-up window (modal)-->
 
-        <!--script for modal-->
-          <script>
-              var openmodal = document.querySelectorAll('.modal-open')
-              for (var i = 0; i < openmodal.length; i++) {
-                  openmodal[i].addEventListener('click', function(event){
-                      event.preventDefault()
-                      toggleModal()
-                  })
+            <p>If you have any questions or want to chat.</p>
+            <p></p>
+            <div class="col">
+              <div class="col-container">
+                <!--Insert Contact Form Name and Link here-->
+                <form id="#" action="#">
+                  <!--Insert label for name, field-->
+                  <div class="col">
+                    <label for="#"></label>
+
+                    <br>
+
+
+                      <div class="mb-4">
+                        <label class="font-bold text-grey-darker block mb-2">Name</label>
+                        <input type="text" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="First & Last Name">
+                      </div>
+
+
+
+
+
+                    <!--Insert Label for name, field-->
+
+                    <div class="mb-4">
+                      <label class="font-bold text-grey-darker block mb-2">E-mail Address</label>
+                      <input type="text" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="E-mail">
+                    </div>
+
+
+                    <!--Insert Label for name, field-->
+                    <label for="#"></label>
+                    <div class="mb-4">
+                      <label class="font-bold text-grey-darker block mb-2">Subject</label>
+                      <input type="text" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Your Subject">
+                    </div>
+
+                    <!--Insert Label for name, field-->
+                    <label for="#"></label>
+                    <div class="mb-4">
+                      <label class="font-bold text-grey-darker block mb-2">Message</label>
+                      <input type="text" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Your Message">
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+              <br><br>
+
+            <!--Footer-->
+            <div class="flex justify-end pt-2">
+              <button class="px-4 bg-transparent p-3 rounded-lg text-pink-500 hover:bg-gray-100 hover:text-pink-400 mr-2">Send Message</button>
+              <button class="modal-close px-4 bg-pink-500 p-3 rounded-lg text-white hover:bg-pink-400">Close</button>
+            </div>
+
+          </div>
+        </div>
+        </div>
+      </div>
+      <script>
+          var openmodal = document.querySelectorAll('.modal-open')
+          for (var i = 0; i < openmodal.length; i++) {
+              openmodal[i].addEventListener('click', function(event){
+                  event.preventDefault()
+                  toggleModal()
+              })
+          }
+
+          const overlay = document.querySelector('.modal-overlay')
+          overlay.addEventListener('click', toggleModal)
+
+          var closemodal = document.querySelectorAll('.modal-close')
+          for (var i = 0; i < closemodal.length; i++) {
+              closemodal[i].addEventListener('click', toggleModal)
+          }
+
+          document.onkeydown = function(evt) {
+              evt = evt || window.event
+              var isEscape = false
+              if ("key" in evt) {
+                  isEscape = (evt.key === "Escape" || evt.key === "Esc")
+              } else {
+                  isEscape = (evt.keyCode === 27)
               }
-
-              const overlay = document.querySelector('.modal-overlay')
-              overlay.addEventListener('click', toggleModal)
-
-              var closemodal = document.querySelectorAll('.modal-close')
-              for (var i = 0; i < closemodal.length; i++) {
-                  closemodal[i].addEventListener('click', toggleModal)
+              if (isEscape && document.body.classList.contains('modal-active')) {
+                  toggleModal()
               }
-
-              document.onkeydown = function(evt) {
-                  evt = evt || window.event
-                  var isEscape = false
-                  if ("key" in evt) {
-                      isEscape = (evt.key === "Escape" || evt.key === "Esc")
-                  } else {
-                      isEscape = (evt.keyCode === 27)
-                  }
-                  if (isEscape && document.body.classList.contains('modal-active')) {
-                      toggleModal()
-                  }
-              };
+          };
 
 
-              function toggleModal () {
-                  const body = document.querySelector('body')
-                  const modal = document.querySelector('.modal')
-                  modal.classList.toggle('opacity-0')
-                  modal.classList.toggle('pointer-events-none')
-                  body.classList.toggle('modal-active')
-              }
-          </script>
-        <!--end of script for modal-->
+          function toggleModal () {
+              const body = document.querySelector('body')
+              const modal = document.querySelector('.modal')
+              modal.classList.toggle('opacity-0')
+              modal.classList.toggle('pointer-events-none')
+              body.classList.toggle('modal-active')
+          }
+
+
+      </script>
+
   </div>
 </div>
 
@@ -191,7 +216,7 @@
 
 <div class="px-4 lg:px-0 m-auto mt-8 lg:max-w-4xl flex flex-wrap items-start justify-between text-gray-700">
 
-  <p class="mt-2"><center>HandsOfLyfe specializes in personalizing each massage for its clients. Each client is different and every massage changes for their wants and needs. We will discuss what problem areas to focus on, health history, and range of motion/posture assessments during this time. During the session, I like to incorporate aromatherapy, Swedish/calming massage, stretches, deep tissue, and reflexology; all focusing on the client. After our session, I like to form a wellness plan for my client.<br><br><br></p></center>
+  <p class="mt-2"><center>HandsOfLyfe specializes in personalizing each massage for its clients. Each client is different and every massage changes for their wants and needs. We will discuss what problem areas to focus on, health history, and range of motion/posture assessments during this time.</p></center>
 
   <div class="flex lg:flex-col lg:w-1/2 md:px-4 pb-4">
     <div class="w-1/3 lg:w-full">
@@ -200,10 +225,7 @@
 
     <div class="w-2/3 lg:w-auto mt-4 ml-4 lg:ml-0">
       <div class="tracking-wider text-lg text-pink-600 font-bold">HandsOfLyfe Classic</div>
-      <p class="mt-2">Heat is known for assisting whenever we are suffering from muscle tension and pain.
-        This is the same when incorporating hot stones with a massage.
-        The muscles are able to "melt" more quickly, thus we are able to penetrate the underlying issues more effectively.
-        Also promotes relaxation, reduces anxiety, and improves sleep.
+      <p class="mt-2">During the session, I like to incorporate aromatherapy, Swedish/calming massage, stretches, deep tissue, and reflexology; all focusing on the client. After our session, I like to form a wellness plan for my client.
       </p>
     </div>
   </div>
@@ -268,6 +290,5 @@
     <div class="px-4 lg:px-0 m-auto mt-8 lg:max-w-4xl flex flex-wrap items-start justify-between text-gray-700">
 
       <p class="mt-2"><center>HandsOfLyfe specializes in personalizing each massage for its clients. Each client is different and every massage changes for their wants and needs. We will discuss what problem areas to focus on, health history, and range of motion/posture assessments during this time.</p></center>
-    <br>
-    </div>
+     </div>
 
