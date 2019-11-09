@@ -24,6 +24,65 @@ Pricing needs to be done in ruby code (for additional services etc)
     <%= stylesheet_pack_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
 
+    <style>
+      #insta-icon {
+        position: relative;
+        width: 48px;
+        height: 48px;
+        border-radius: 500px;
+        padding: 10px;
+        /* transform: scale(1.45); */
+        background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf)
+      }
+      #insta-icon:after,
+      #insta-icon:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 30px;
+        height: 30px;
+        border: 2px solid #fff;
+        transform: translate(-50%, -50%);
+        content: ''
+      }
+      #insta-icon:before {
+        border-radius: 20%
+      }
+      #insta-icon:after {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%
+      }
+
+
+      #fb-icon {
+        position: relative;
+        width: 48px;
+        height: 48px;
+        border-radius: 500px;
+        padding: 10px;
+        /* transform: scale(1.45); */
+        background-image: linear-gradient(#1f5eff, #123ba3);
+      }
+      #fb-icon:after,
+      #fb-icon:before {
+        position: absolute;
+        top: 0%;
+        left: 35%;
+        width: 30px;
+        height: 30px;
+        content: ''
+      }
+      #fb-icon:before {
+        transform: translate(-5%, -33%);
+        color: white;
+        font-weight: 500;
+        font-size: 280%;
+        content: 'f'
+      }
+    </style>
+
+
   </head>
 
  <body class="bg-gray-100">
@@ -113,8 +172,31 @@ Pricing needs to be done in ruby code (for additional services etc)
     <main>
       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
-  <div class="container mx-auto py-3 border-t border-gray-400">
-    sup
+
+
+  <!-- Footer -->
+
+  <div class="py-8 m-auto bg-gray-300 text-center text-4xl text-gray-800 tracking-wider font-bold border-t border-gray-400">
+    <h1>Social Media</h1>
   </div>
+
+  <div class="flex justify-center bg-gray-300">
+    <div class="">
+      <div style="padding: 20px;" class="container mx-auto py-3">
+        <a href="https://www.instagram.com" target="_blank">
+          <div id="insta-icon"></div>
+        </a>
+      </div>
+    </div>
+    <div class="">
+      <div style="padding: 20px;" class="container mx-auto py-3">
+        <a href="https://www.facebook.com" target="_blank">
+          <div id="fb-icon"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
   </body>
 </html>

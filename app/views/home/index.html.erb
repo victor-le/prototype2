@@ -1,3 +1,4 @@
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
 <style>
   .modal {
     transition: opacity 0.25s ease;
@@ -9,44 +10,47 @@
   .input[type=text]{
     padding: 10px;
   }
+
+
+
   .inputbox{
     width:210px;
     position: relative;
     padding: 15px;
   }
+
+
 </style>
+
 
 <a href="#" class="cursor-pointer w-12 h-12 text-center text-xl font-black bg-pink-700 hover:bg-pink-900 text-white p-3 rounded-full fixed z-10 bottom-0 right-0 m-3">
   ^
 </a>
 
-<div class="flex flex-col justify-center bg-fixed bg-center lg:h-160 h-120 w-full" style="background-image:url(/assets/flower-hands.jpg);">
-  <div style="font-family: 'Marthin Slant', serif;">
+<div class="flex flex-col justify-center bg-fixed bg-center lg:h-160 h-120 w-full" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(/assets/flower-hands.jpg); background-size: cover;">
+  <div style="font-family: 'Marthin Slant', serif; line-height:0px; padding-bottom: 7px; width: 100%;">
       <h1 class="text-6xl text-white text-center font-bold">HandsOfLyfe</h1>
   </div>
-  <div style="font-family: 'Adam', serif;";>
+  <div style="margin-top: 10px; font-family: 'Adam', serif; letter-spacing: 8px;";>
     <br><br>
-      <h2 class="text-2xl text-white text-center font-bold tracking-widest">MASSAGE THERAPY</h2>
+      <h2 class="text-2xl text-white text-center font-bold">MASSAGE THERAPY</h2>
   </div>
 </div>
 
 <div class="py-8 m-auto text-center text-4xl text-gray-800 tracking-wider font-bold border-b border-gray-400">
-  <h1 id="howitworks">How It Works</h1>
+  <h1 id="about">How It Works</h1>
 </div>
 
-<div class="px-4 lg:px-0 m-auto mt-8 lg:max-w-3xl text-gray-700">
-  <p class="mb-2">HandsOfLyfe specializes in personalizing each massage for its clients.
-    Each client is different and every massage changes for their wants and needs.
-    We will discuss what problem areas to focus on, health history, and range of motion/posture assessments during this time.</p>
-  <p class="mb-2">Price will increase based on service type and travel distance.
-    A $20 travel fee will be applied to the appointment for the first 20 miles. Plus $1 per mile after.</p>
-  <h2 class="text-lg font-bold">Cancellation Policy</h2>
-  <p class="mb-2">24-hour advance notice is required when cancelling or rescheduling an appointment.
-  This allows for the opportunity for someone else to schedule an appointment.
-    If you are unable to give 24 hours advance notice, the $20 deposit fee towards travel will not be refunded.</p>
-</div>
+    <div class="px-4 lg:px-0 m-auto mt-8 lg:max-w-4xl flex flex-wrap items-start justify-between text-gray-700">
 
-<div class="pt-8 pb-4 m-auto text-center text-4xl text-gray-800 tracking-wider font-bold border-b border-gray-400">
+      <p class="mt-2"><center>HandsOfLyfe specializes in personalizing each massage for its clients. Each client is different and every massage changes for their wants and needs. We will discuss what problem areas to focus on, health history, and range of motion/posture assessments during this time.</p></center>
+
+    </div>
+
+
+
+<br><br>
+<div class="py-8 m-auto text-center text-4xl text-gray-800 tracking-wider font-bold border-b border-gray-400">
   <h1 id="about">About</h1>
 </div>
 
@@ -57,7 +61,7 @@
 
     <div class="p-4 md:p-12 text-center lg:text-left">
       <!-- Image for mobile view-->
-      <div class="block lg:hidden rounded-full mx-auto -mt-16 h-48 w-48 bg-cover bg-center" src="/assets/anna-alegria.jpeg"></div>
+      <div class="block lg:hidden rounded-full mx-auto -mt-16 h-48 w-48 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/MP0IUfwrn0A')"></div>
 
       <h1 class="text-3xl font-bold pt-8 lg:pt-0">Anna Alegria</h1>
       <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-pink-500 opacity-25"></div>
@@ -70,7 +74,7 @@
 
       <div class="pt-12 pb-8">
         <button class="modal-open bg-pink-700 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded">
-          Catch These Hands
+          Get In Touch
         </button>
 
       <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
@@ -88,7 +92,9 @@
             <!--Title-->
             <div class="flex justify-between items-center pb-3">
               <p class="text-2xl font-bold">Let's get in touch!</p><br>
-                <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"></svg>
+                <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+
+                </svg>
               </div>
 
             <p>If you have any questions or want to chat.</p>
@@ -107,10 +113,13 @@
 
                     <br>
 
+
                       <div class="mb-4">
                         <label for ="name" class="font-bold text-grey-darker block mb-2">Name</label>
                         <input id="name" name="name" type="text" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="First & Last Name">
                       </div>
+
+
 
                     <!--Insert Label for name, field-->
 
@@ -118,6 +127,7 @@
                       <label for ="email" class="font-bold text-grey-darker block mb-2">E-mail Address</label>
                       <input id="email" name="email" type="text" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="E-mail">
                     </div>
+
 
                     <!--Insert Label for name, field-->
                     <div class="mb-4">
@@ -180,6 +190,7 @@
               }
           };
 
+
           function toggleModal () {
               const body = document.querySelector('body')
               const modal = document.querySelector('.modal')
@@ -195,20 +206,19 @@
   <!--Img Col-->
   <div class="w-full lg:w-2/5">
     <!-- Big profile image for side bar (desktop) -->
-    <img src="/assets/anna-alegria.jpeg" class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
+    <img src="https://source.unsplash.com/MP0IUfwrn0A" class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
+    <!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->
 
   </div>
 </div>
 
-<div class="pt-8 pb-4 m-auto text-center text-4xl text-gray-800 tracking-wider font-bold border-b border-gray-400">
+<div class="py-8 m-auto text-center text-4xl text-gray-800 tracking-wider font-bold border-b border-gray-400">
   <h1 id="services">Services</h1>
 </div>
 
 <div class="px-4 lg:px-0 m-auto mt-8 lg:max-w-4xl flex flex-wrap items-start justify-between text-gray-700">
 
-  <p class="mb-2">HandsOfLyfe specializes in personalizing each massage for its clients.
-    Each client is different and every massage changes for their wants and needs.
-    We will discuss what problem areas to focus on, health history, and range of motion/posture assessments during this time.</p>
+  <p class="mt-2"><center>HandsOfLyfe specializes in personalizing each massage for its clients. Each client is different and every massage changes for their wants and needs. We will discuss what problem areas to focus on, health history, and range of motion/posture assessments during this time.</p></center>
 
   <div class="flex lg:flex-col lg:w-1/2 md:px-4 pb-4">
     <div class="w-1/3 lg:w-full">
@@ -217,9 +227,20 @@
 
     <div class="w-2/3 lg:w-auto mt-4 ml-4 lg:ml-0">
       <div class="tracking-wider text-lg text-pink-600 font-bold">HandsOfLyfe Classic</div>
-      <p class="mt-2">During the session, I like to incorporate aromatherapy, Swedish/calming massage, stretches,
-        deep tissue, and reflexology; all focusing on the client. After our session, I like to form a wellness plan for my client.
+      <p class="mt-2">During the session, I like to incorporate aromatherapy, Swedish/calming massage, stretches, deep tissue, and reflexology; all focusing on the client. After our session, I like to form a wellness plan for my client.
       </p>
+    </div>
+  </div>
+  <div class="flex lg:flex-col lg:w-1/2 md:px-4 pb-4">
+    <div class="w-1/3 lg:w-full">
+      <img class="w-full object-cover h-48 lg:h-64 rounded-lg" src="/assets/hotstone.jpg" alt="Hot Stones">
+    </div>
+    <div class="w-2/3 lg:w-auto mt-4 ml-4 lg:ml-0">
+      <div class="tracking-wider text-lg text-pink-600 font-bold">Hot Stones</div>
+      <p class="mt-2">Heat is known for assisting whenever we are suffering from muscle tension and pain.
+        This is the same when incorporating hot stones with a massage.
+        The muscles are able to "melt" more quickly, thus we are able to penetrate the underlying issues more effectively.
+        Also promotes relaxation, reduces anxiety, and improves sleep.</p>
     </div>
   </div>
   <div class="flex lg:flex-col lg:w-1/2 md:px-4 pb-4">
@@ -254,22 +275,10 @@
   </div>
   <div class="flex lg:flex-col lg:w-1/2 md:px-4 pb-4">
     <div class="w-1/3 lg:w-full">
-      <img class="w-full object-cover h-48 lg:h-64 rounded-lg" src="/assets/hotstone.jpg" alt="Hot Stones">
-    </div>
-    <div class="w-2/3 lg:w-auto mt-4 ml-4 lg:ml-0">
-      <div class="tracking-wider text-lg text-pink-600 font-bold">Hot Stones <i class="text-sm">+$10</i></div>
-      <p class="mt-2">Heat is known for assisting whenever we are suffering from muscle tension and pain.
-        This is the same when incorporating hot stones with a massage.
-        The muscles are able to "melt" more quickly, thus we are able to penetrate the underlying issues more effectively.
-        Also promotes relaxation, reduces anxiety, and improves sleep.</p>
-    </div>
-  </div>
-  <div class="flex lg:flex-col lg:w-1/2 md:px-4 pb-4">
-    <div class="w-1/3 lg:w-full">
       <img class="w-full object-cover h-48 lg:h-64 rounded-lg" src="/assets/cupping-therapy.jpg" alt="Cupping">
     </div>
     <div class="w-2/3 lg:w-auto mt-4 ml-4 lg:ml-0">
-      <div class="tracking-wider text-lg text-pink-600 font-bold">Cupping Therapy <i class="text-sm">+$15</i></div>
+      <div class="tracking-wider text-lg text-pink-600 font-bold">Cupping Therapy</div>
       <p class="mt-2">An ancient Eastern therapy that has made its way back into the light for the past few years.
         Cupping helps reduce inflammation by improving blood circulation, thus increasing the recovery and repair process.
         Great for acute and chronic pain!</p>
@@ -277,4 +286,11 @@
   </div>
 </div>
 
+  <div class="py-8 m-auto text-center text-4xl text-gray-800 tracking-wider font-bold border-b border-gray-400">
+    <h1 id="about">Prices</h1>
+  </div>
+    <div class="px-4 lg:px-0 m-auto mt-8 lg:max-w-4xl flex flex-wrap items-start justify-between text-gray-700">
+
+      <p class="mt-2"><center>HandsOfLyfe specializes in personalizing each massage for its clients. Each client is different and every massage changes for their wants and needs. We will discuss what problem areas to focus on, health history, and range of motion/posture assessments during this time.</p></center>
+     </div>
 

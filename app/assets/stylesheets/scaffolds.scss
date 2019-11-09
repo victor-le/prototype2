@@ -34,3 +34,76 @@
 label {
   display: block;
 }
+
+
+
+// calendar css
+
+.simple-calendar {
+  text-align: center;
+
+  table {
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    background: white;
+    border: 1px solid rgb(221, 221, 221);
+    border-collapse: collapse;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  tr {
+    border-collapse: collapse;
+  }
+
+  th {
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  td {
+    padding: 6px;
+    vertical-align: top;
+    width: 14%;
+    border: 1px solid black;
+    border-top-color: rgb(221, 221, 221);
+  }
+
+
+  .day {
+    font-size: 13px;
+    height: 100px;
+  }
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    background: #FED7EE;
+
+  }
+  .past {}
+  .future {}
+
+  .start-date {
+  }
+
+  .prev-month {
+    background:#eee;
+  }
+  .next-month {
+    background:#eee;
+  }
+  .current-month {}
+
+  .has-events {}
+}
