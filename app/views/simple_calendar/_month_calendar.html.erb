@@ -1,7 +1,7 @@
 <div class="simple-calendar">
   <div class="calendar-heading py-4" >
     <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class:"cursor-pointer text-sm text-center w-24 bg-gray-600 hover:bg-gray-800 text-white mr-3 px-3 py-1 inline-block rounded" %>
-    <span class="calendar-title" style="font-weight: bold; font-size: 140%;"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    <span class="calendar-title font-bold text-2xl"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
     <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class:"cursor-pointer text-sm text-center w-24 bg-gray-600 hover:bg-gray-800 text-white ml-3 px-3 py-1 inline-block rounded" %>
   </div>
 
@@ -20,7 +20,7 @@
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
-                <% capture_haml(day, sorted_events.fetch(day, []), &block)  %>
+                <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
               <% else %>
                 <% block.call day.strftime("%d"), sorted_events.fetch(day, []) %>
               <% end %>
