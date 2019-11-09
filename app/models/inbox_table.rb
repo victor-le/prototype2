@@ -1,0 +1,2 @@
+class InboxTable < ApplicationRecord
+end

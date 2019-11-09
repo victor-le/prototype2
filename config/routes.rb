@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :inbox_tables
   resources :app_schedules
   resources :special_requirements
   resources :app_times
