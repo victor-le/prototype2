@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :requirementDesc %>
-    <%= form.text_field :requirementDesc %>
+    <%= form.label :Description_for_requirement, class: "label" %>
+    <%= form.text_field :requirementDesc, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :requirementValue %>
-    <%= form.number_field :requirementValue %>
+    <%= form.label :Number_value_for_requirement, class: "label" %>
+    <%= form.number_field :requirementValue, class: "input" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create New Special Requirement", class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 mb-4 inline-block rounded" %>
   </div>
 <% end %>

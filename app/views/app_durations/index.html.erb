@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
-
-<h1>App Durations</h1>
+<div class="container max-w-xl mx-auto flex flex-col items-center justify-center px-2 my-12">
+  <div class="bg-white px-6 py-8 border rounded-lg shadow-md text-black w-full">
+<h1 class="mb-8 text-3xl text-center">Appointment Durations</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Duration</th>
-      <th>Durationprice</th>
+      <th>Duration Length in Minutes</th>
+      <th>Duration Price</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,11 +15,11 @@
   <tbody>
     <% @app_durations.each do |app_duration| %>
       <tr>
-        <td><%= app_duration.duration %></td>
-        <td><%= app_duration.durationPrice %></td>
-        <td><%= link_to 'Show', app_duration %></td>
-        <td><%= link_to 'Edit', edit_app_duration_path(app_duration) %></td>
-        <td><%= link_to 'Destroy', app_duration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="border px-4 py-2"><%= app_duration.duration %></td>
+        <td class="border px-4 py-2"><%= app_duration.durationPrice %></td>
+        <td class="border px-4 py-2"><%= link_to 'Show', app_duration %></td>
+        <td class="border px-4 py-2"><%= link_to 'Edit', edit_app_duration_path(app_duration) %></td>
+        <td class="border px-4 py-2"><%= link_to 'Destroy', app_duration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New App Duration', new_app_duration_path %>
+<%= link_to 'Add a New Time Duration', new_app_duration_path, class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 mb-4 inline-block rounded" %>

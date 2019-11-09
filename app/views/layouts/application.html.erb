@@ -58,24 +58,41 @@ Pricing needs to be done in ruby code (for additional services etc)
     </div>
     <div class="hidden w-full flex-grow lg:flex lg:flex-none lg:w-auto lg:items-center pt-6 lg:pt-0" id="nav-content">
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
+      <% unless admin? %>
         <li class="mr-2">
           <a class="inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" href="/#about">About</a>
         </li>
         <li class="mr-2">
           <a class="inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" href="/#services">Services</a>
         </li>
+        <% end %>
         <li class="mr-2">
         <%= link_to "Users", users_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
         </li>
         <li class="mr-2">
-        <%= link_to "Schedule an Appointment", new_app_schedule_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" %>
+        <%= link_to "Appointment Dashboard", app_schedules_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
+        </li>
+        <li class="mr-2">
+        <%= link_to "Schedule an Appointment", new_app_schedule_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" unless admin? %>
         </li>
         <% if user_signed_in? %>
         <li class="mr-2">
-          <%= link_to "My Appointments", app_schedules_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" %>
+          <%= link_to "My Appointments", app_schedules_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" unless admin? %>
         </li>
         <% else %>
         <% end %>
+        <li class="mr-2">
+          <%= link_to "Set up Times", app_times_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
+        </li>
+        <li class="mr-2">
+          <%= link_to "Create Services", services_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
+        </li>
+        <li class="mr-2">
+        <%= link_to "Set Time Durations", app_durations_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>      
+        </li>
+        <li class="mr-2">
+        <%= link_to "Set Massage Requirements", special_requirements_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
+        </li>
       </ul>
       <% if user_signed_in? %>
         <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded" %>
