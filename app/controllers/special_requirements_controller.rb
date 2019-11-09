@@ -58,7 +58,7 @@ class SpecialRequirementsController < ApplicationController
   def destroy
     @special_requirement.destroy
     respond_to do |format|
-      format.html { redirect_to special_requirements_url, notice: 'Special requirement was successfully destroyed.' }
+      format.html { redirect_to special_requirements_url, notice: 'Special requirement was successfully deleted.' }
       format.json { head :no_content }
     end
   end

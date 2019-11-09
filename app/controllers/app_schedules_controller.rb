@@ -37,7 +37,7 @@ class AppSchedulesController < ApplicationController
 
     respond_to do |format|
       if @app_schedule.save
-        format.html { redirect_to @app_schedule, notice: 'Appointment was successfully scheduled. Please check your email for confirmation!' }
+        format.html { redirect_to @app_schedule, notice: 'Appointment was successfully scheduled. Please check your email for confirmation and further details!' }
         format.json { render :show, status: :created, location: @app_schedule }
         @app_schedule.app_time.update_attribute(:booked, true)
         #method from AppointmentMailer that is supposed to prepare mail to be sent
@@ -78,7 +78,7 @@ class AppSchedulesController < ApplicationController
       @app_schedule.app_time.update_attribute(:booked, false)
       AppointmentMailer.with(app_schedule: @app_schedule).cancel_appointment.deliver!
       AppointmentMailer.with(app_schedule: @app_schedule).notify_appointment_cancel.deliver!
-      format.html { redirect_to app_schedules_url, notice: 'Appointment was successfully destroyed.' }
+      format.html { redirect_to app_schedules_url, notice: 'Appointment was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -100,7 +100,7 @@ class AppSchedulesController < ApplicationController
 
   def must_be_admin
     unless current_user.admin?
-      redirect_to app_schedules_path, alert: "You don't have access to this page"
+      redirect_to app_schedules_path, alert: "You don't have access to this page."
     end
   end
 
