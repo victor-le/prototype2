@@ -1,14 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="container max-w-xl mx-auto flex flex-col items-center justify-center px-2 my-12">
+  <div class="bg-white px-6 py-8 border rounded-lg shadow-md text-black w-full">
+  <p class="my-2" id="notice"><%= notice %></p>
 
-<p>
-  <strong>Requirementdesc:</strong>
-  <%= @special_requirement.requirementDesc %>
-</p>
+  <p class="my-2">
+    <strong>Requirement Description:</strong>
+    <%= @special_requirement.requirementDesc %>
+  </p>
 
-<p>
-  <strong>Requirementvalue:</strong>
-  <%= @special_requirement.requirementValue %>
-</p>
+  <p class="my-2">
+    <strong>Requirement Value:</strong>
+    <%= @special_requirement.requirementValue %>
+  </p>
 
-<%= link_to 'Edit', edit_special_requirement_path(@special_requirement) %> |
-<%= link_to 'Back', special_requirements_path %>
+  <%= link_to 'Edit', edit_special_requirement_path(@special_requirement) %> |
+  <%= link_to 'Back', special_requirements_path %>
+  </div>
+</div>
