@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :must_be_admin
+  before_action :admin
 
   def index
     @users = User.all
@@ -7,9 +7,5 @@ class UsersController < ApplicationController
 
   private
 
-  def must_be_admin
-    unless current_user.admin?
-      redirect_to app_schedules_path, alert: "You don't have access to this page"
-    end
-  end
+
 end

@@ -12,13 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :Address, class: "label" %>
-    <%= form.text_field :homeAddress, class: "input" %>
+    <%= form.label :Address, class: "label required" %>
+    <%= form.text_field :homeAddress, class: "input", :required => true %>
   </div>
 
   <div class="field">
-    <%= form.label :home_type, class: "label" %>
-    <%= form.text_field :homeType, class: "input" %>
+    <%= form.label :home_type, class: "label required" %>
+    <%= form.text_field :homeType, class: "input",:required => true
+
+ %>
   </div>
 
   <div class="field">
@@ -27,18 +29,22 @@
   </div>
 
   <div class="field">
-    <%= form.label :city, class: "label" %>
-    <%= form.text_field :city, class: "input" %>
+    <%= form.label :city, class: "label required" %>
+    <%= form.text_field :city, class: "input", :required => true
+
+ %>
   </div>
 
   <div class="field">
-    <%= form.label :state, class: "label" %>
-    <%= form.text_field :state, class: "input" %>
+    <%= form.label :state, class: "label required" %>
+    <%= form.text_field :state, class: "input", :required => true
+
+ %>
   </div>
 
   <div class="field">
-    <%= form.label :zipcode, class: "label" %>
-    <%= form.text_field :zipcode, class: "input" %>
+    <%= form.label :zipcode, class: "label required" %>
+    <%= form.text_field :zipcode, class: "input", :required => true %>
   </div>
 
     <div class="field">
@@ -47,7 +53,7 @@
   </div>
 
   <div class="mb-4">
-    <%= form.label :service, class: "label" %>
+    <%= form.label :service, class: "label r" %>
     <%= collection_select(:app_schedule, :service_id, Service.all, :id, :serviceName, {}) %>
   </div>
 

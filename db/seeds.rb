@@ -13,6 +13,7 @@ user.email = 'admin@mail.com'
 user.password = 'password'
 user.password_confirmation = 'password'
 user.admin = true
+user.phone_number = 713-272-1728
 user.save!
 
 user2 = User.new
@@ -21,6 +22,7 @@ user2.name = 'John Doe'
 user2.email = 'johndoe22@mail.com'
 user2.password = 'password'
 user2.password_confirmation = 'password'
+user.phone_number = 832-797-8172
 user.admin = false
 user2.save!
 
