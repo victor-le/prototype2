@@ -6,6 +6,7 @@ class AppSchedulesController < ApplicationController
 
   # GET /app_schedules
   # GET /app_schedules.json
+  #def import     @software = Software.find(params[:software_id])     Code.import(@software, params[:file])     redirect_to codes_path, notice: 'Codes were successfully uploaded!'   end
 
   def index
     if current_user.admin?

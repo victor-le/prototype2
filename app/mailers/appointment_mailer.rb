@@ -1,6 +1,6 @@
 class AppointmentMailer < ApplicationMailer
     helper :application
-    default from: 'handsoflyfedemo@gmail.com'
+    default from: 'handsoflyfe@gmail.com'
 
 def appointment_scheduled
     @app_schedule = params[:app_schedule]
@@ -22,19 +22,19 @@ end
 def notify_appointment
     @app_schedule = params[:app_schedule]
    # @user = params[:user]
-    mail(to: "handsoflyfedemo@gmail.com", subject: "New Appointment Scheduled")
+    mail(to: "handsoflyfe@gmail.com", subject: "New Appointment Scheduled")
 end
 
 def notify_appointment_update
     @app_schedule = params[:app_schedule]
    # @user = params[:user]
-    mail(to: "handsoflyfedemo@gmail.com", subject: "Appointment Updated")
+    mail(to: "handsoflyfe@gmail.com", subject: "Appointment Updated")
 end
 
 def notify_appointment_cancel
     @app_schedule = params[:app_schedule]
    # @user = params[:user]
-    mail(to: "handsoflyfedemo@gmail.com", subject: "Appointment Cancelled")
+    mail(to: "handsoflyfe@gmail.com", subject: "Appointment Cancelled")
 end
 
 
