@@ -11,7 +11,7 @@
   <div class="block pl-2 border-l border-indigo-light mb-5">
     <p class="text-xs uppercase tracking-loose text-grey-darker pt-1">Upcoming Appointments</p>
     <% user.app_schedules.each do |app_schedule| %>
-      <%= link_to app_schedule.user.name, app_schedule, class: "link my-2 inline-block" %>
+      <%= link_to app_schedule.user.name, app_schedule,  class: "link my-2 inline-block" %>
     <% end %>
   </div>
 <% end %>

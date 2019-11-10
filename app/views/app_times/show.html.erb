@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Appdate:</strong>
+  <strong>Appointment Slot:</strong>
   <%= @app_time.appDate %>
 </p>
 
 <%= link_to 'Edit', edit_app_time_path(@app_time) %> |
-<%= link_to 'Back', app_times_path %>
+<%= link_to 'Back', app_times_path %> |
+<%= link_to 'Create Another Time Slot', new_app_time_path %>
