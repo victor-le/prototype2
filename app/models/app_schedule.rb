@@ -19,7 +19,7 @@ class AppSchedule < ApplicationRecord
   validates :zipcode, presence: true
 
   def self.to_csv
-    attributes = %w{app_time_id start_time user_id service_id appduration_id homeAddress homeType suiteNumber city state zipcode comment specialrequirement_id}
+    attributes = %w{app_time_id user_id service_id appduration_id homeAddress homeType suiteNumber city state zipcode comment specialrequirement_id}
     CSV.generate(headers: true) do |csv|
       csv << attributes
 
