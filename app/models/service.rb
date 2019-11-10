@@ -3,4 +3,7 @@ class Service < ApplicationRecord
 
     validates :serviceName, presence: true
     validates :servicePrice, presence: true
+    validates :servicePrice, numericality: { greater_than: 0 }
+    validates_uniqueness_of :serviceName
+
 end

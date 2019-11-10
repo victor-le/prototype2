@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     authenticate :user, lambda { |u| u.admin? } do
       mount Sidekiq::Web => '/sidekiq'
     end
+    devise_scope :user do
+      post 'users/sign_up', to: 'devise/registrations#create'
+  end
+  
   devise_for :users
   get 'active-sessions', to: "app_schedules#active_sessions"
   root to: 'home#index'

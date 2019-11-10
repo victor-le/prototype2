@@ -12,11 +12,13 @@ class AppSchedule < ApplicationRecord
              foreign_key: "app_time_id"
              
 
-  # validates :homeAddress, presence: true
-  # validates :homeType, presence: true
-  # validates :state, presence: true, length: {maximum: 2}
-  # validates :city, presence: true
-  # validates :zipcode, presence: true
+  validates :homeAddress, presence: true
+  validates :homeType, presence: true
+  validates :state, presence: true, length: {maximum: 2}
+  validates :city, presence: true
+  validates :zipcode, presence: true
+  validates :zipcode, length: { is: 5 }
+  
 
 
   def start_time

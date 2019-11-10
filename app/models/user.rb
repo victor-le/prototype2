@@ -6,9 +6,10 @@ class User < ApplicationRecord
 
 
   has_many :app_schedules, dependent: :destroy
+  validates_uniqueness_of :email
 
-  validates :phone_number,  :presence => {:message => 'hello world, bad operation!'},
-  :numericality => true,
-  :length => { :minimum => 10, :maximum => 15 }
+  
+  validates :phone_number, format: { with: /((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/,
+    message: "Numbers must be formated in xxx-xxx-xxxx " }
   
 end

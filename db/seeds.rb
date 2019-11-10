@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user = User.new
-user.username = 'admin'
 user.name = 'admin'
 user.email = 'admin@mail.com'
 user.password = 'password'
@@ -17,7 +16,6 @@ user.phone_number = 713-272-1728
 user.save!
 
 user2 = User.new
-user2.username = 'johndoe22'
 user2.name = 'John Doe'
 user2.email = 'johndoe22@mail.com'
 user2.password = 'password'
@@ -25,6 +23,24 @@ user2.password_confirmation = 'password'
 user.phone_number = 832-797-8172
 user.admin = false
 user2.save!
+
+user3 = User.new
+user.name = 'Anna Alegria'
+user.email = 'handsoflyfe@mail.com'
+user.password = 'Lovemassage2018'
+user.password_confirmation = 'Lovemassage2018'
+user.admin = true
+user.phone_number = 832-890-9086
+user.save!
+
+user4 = User.new
+user.name = 'Wendy Nguyen'
+user.email = 'wendynguyen312@outlook.com'
+user.password = 'studentdebt19!'
+user.password_confirmation = 'password'
+user.admin = true
+user.phone_number = 713-272-1728
+user.save!
 
 duration = AppDuration.new
 duration.duration = 90
