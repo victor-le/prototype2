@@ -1,3 +1,5 @@
+
+
 <div class="container m-auto my-4">
   <% unless current_user.app_schedules.any? %>
     <%= render "app_schedules_cta" unless admin? %>

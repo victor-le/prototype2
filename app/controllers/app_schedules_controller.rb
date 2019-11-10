@@ -3,11 +3,18 @@ class AppSchedulesController < ApplicationController
   before_action :set_app_schedule, only: [:show, :edit, :update, :destroy]
   before_action :must_be_admin, only: [:active_sessions]
 
+
   # GET /app_schedules
   # GET /app_schedules.json
+
   def index
     if current_user.admin?
     @app_schedules = AppSchedule.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @app_schedules.to_csv, filename: "appsched-#{Date.today}.csv"}
+    end
     else
       @app_schedules = current_user.app_schedules.where(user_id: current_user)
     end
@@ -103,6 +110,7 @@ class AppSchedulesController < ApplicationController
       redirect_to app_schedules_path, alert: "You don't have access to this page."
     end
   end
+
 
 
 end
