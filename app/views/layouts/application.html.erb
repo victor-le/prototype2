@@ -1,15 +1,3 @@
-<!--
-TODO:
-Ask Victor how the calendar works
-Split Name into FirstName and LastName fields
-Remove Username field or remove form insert and ignore in DB
-Add Disclaimer/Cancellation content
-Add Phone Number
-Add Email Contact form
-Add Services sheet and Pricing
-Pricing needs to be done in ruby code (for additional services etc)
--->
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,44 +8,8 @@ Pricing needs to be done in ruby code (for additional services etc)
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
     <%= stylesheet_pack_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
-
-<style>
-.insta-icon {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  border-radius: 500px;
-  padding: 10px;
-  /* transform: scale(1.45); */
-  background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf)
-}
-.insta-icon:after,
-.insta-icon:before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 30px;
-  height: 30px;
-  border: 2px solid #fff;
-  transform: translate(-50%, -50%);
-  content: ''
-}
-.insta-icon:before {
-  border-radius: 20%
-}
-.insta-icon:after {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%
-}
-  .label.required:after{
-    content: " *";
-    color: red;
-}
-  </style>
   </head>
 
  <body class="bg-gray-100">
@@ -92,24 +44,41 @@ Pricing needs to be done in ruby code (for additional services etc)
     </div>
     <div class="hidden w-full flex-grow lg:flex lg:flex-none lg:w-auto lg:items-center pt-6 lg:pt-0" id="nav-content">
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
+      <% unless admin? %>
         <li class="mr-2">
           <a class="inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" href="/#about">About</a>
         </li>
         <li class="mr-2">
           <a class="inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" href="/#services">Services</a>
         </li>
+        <% end %>
         <li class="mr-2">
         <%= link_to "Users", users_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
         </li>
         <li class="mr-2">
-        <%= link_to "Schedule an Appointment", new_app_schedule_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" %>
+        <%= link_to "Appointment Dashboard", app_schedules_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
+        </li>
+        <li class="mr-2">
+        <%= link_to "Schedule an Appointment", new_app_schedule_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" unless admin? %>
         </li>
         <% if user_signed_in? %>
         <li class="mr-2">
-          <%= link_to "My Appointments", app_schedules_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" %>
+          <%= link_to "My Appointments", app_schedules_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" unless admin? %>
         </li>
         <% else %>
         <% end %>
+        <li class="mr-2">
+          <%= link_to "Set up Times", app_times_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
+        </li>
+        <li class="mr-2">
+          <%= link_to "Create Services", services_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
+        </li>
+        <li class="mr-2">
+        <%= link_to "Set Time Durations", app_durations_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>      
+        </li>
+        <li class="mr-2">
+        <%= link_to "Set Massage Requirements", special_requirements_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
+        </li>
       </ul>
       <% if user_signed_in? %>
         <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded" %>
@@ -130,6 +99,27 @@ Pricing needs to be done in ruby code (for additional services etc)
     <main>
       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
+
+  <!-- Footer -->
+
+  <div class="lg:flex justify-center max-w-6xl mx-auto py-6 border-t border-gray-400">
+
+    <div class="ml-4">©2019 HandsOfLyfe |</div>
+    <div class="ml-2"> Made with Love <span class="text-pink-600">♥</span> by Cosmic Solutions</div>
+
+    <div class="flex lg:mx-auto lg:my-auto mx-8 my-4">
+      <a href="https://facebook.com/handsoflyfe" target="_blank" class="mx-3 h-8 w-8">
+        <img src="/assets/facebook.svg" alt="Facebook Icon">
+      </a>
+
+      <a href="https://instagram.com/handsoflyfe" target="_blank" class="mx-3 h-8 w-8">
+      <img src="/assets/instagram.svg" alt="Instagram Icon">
+      </a>
+
+      <a href="mailto:handsoflyfe@gmail.com" target="_blank" class="mx-3 h-8 w-8">
+        <img src="/assets/email.svg" alt="Email Icon">
+      </a>
+    </div>
 
   </div>
   </body>

@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :duration %>
-    <%= form.number_field :duration %>
+    <%= form.label :duration_in_minutes, class: "label" %>
+    <%= form.number_field :duration, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :durationPrice %>
-    <%= form.text_field :durationPrice %>
+    <%= form.label :Price_For_Duration, class: "label" %>
+    <%= form.text_field :durationPrice, class: "input" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create New Appointment Duration", class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 mb-4 inline-block rounded" %>
   </div>
 <% end %>

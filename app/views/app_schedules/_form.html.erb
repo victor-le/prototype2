@@ -17,15 +17,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :home_type, class: "label required" %>
-    <%= form.text_field :homeType, class: "input",:required => true
-
- %>
+    <%= form.label :home_type, class: "label" %>
+    <%= form.text_field :homeType, class: "input",:required => true, placeholder: "1 Story, 2 Story, Apartment, etc." %>
   </div>
 
   <div class="field">
     <%= form.label :suite_number, class: "label" %>
-    <%= form.text_field :suiteNumber, class: "input" %>
+    <%= form.text_field :suiteNumber, class: "input", placeholder: "Please fill out if in apartment, condo, etc" %>
   </div>
 
   <div class="field">
@@ -49,7 +47,7 @@
 
     <div class="field">
     <%= form.label :comment, class: "label" %>
-    <%= form.text_field :comment, class: "input" %>
+    <%= form.text_field :comment, class: "input", placeholder: "Enter gate codes, entrance instructions, etc" %>
   </div>
 
   <div class="mb-4">
@@ -73,6 +71,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "Schedule Your Appointment", class:"cursor-pointer font-semibold bg-purple-700 hover:bg-purple-900 text-white mr-3 px-5 py-2 mb-4 inline-block rounded"%>
+    <%= form.submit "Schedule Your Appointment", class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 mb-4 inline-block rounded"%>
   </div>
 <% end %>

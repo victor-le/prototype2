@@ -1,29 +1,32 @@
 <p id="notice"><%= notice %></p>
+<div class="container max-w-xl mx-auto flex flex-col items-center justify-center px-2 my-12">
+  <div class="bg-white px-6 py-8 border rounded-lg shadow-md text-black w-full">
+    <h1 class="mb-8 text-3xl text-center">Special Requirements</h1>
 
-<h1>Special Requirements</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Requirement Description</th>
+          <th>Requirement Value</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Requirementdesc</th>
-      <th>Requirementvalue</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <tbody>
+        <% @special_requirements.each do |special_requirement| %>
+          <tr>
+            <td class="border px-4 py-2"><%= special_requirement.requirementDesc %></td>
+            <td class="border px-4 py-2"><%= special_requirement.requirementValue %></td>
+            <td class="border px-4 py-2"><%= link_to 'Show', special_requirement %></td>
+            <td class="border px-4 py-2"><%= link_to 'Edit', edit_special_requirement_path(special_requirement) %></td>
+            <td class="border px-4 py-2"><%= link_to 'Destroy', special_requirement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <tbody>
-    <% @special_requirements.each do |special_requirement| %>
-      <tr>
-        <td><%= special_requirement.requirementDesc %></td>
-        <td><%= special_requirement.requirementValue %></td>
-        <td><%= link_to 'Show', special_requirement %></td>
-        <td><%= link_to 'Edit', edit_special_requirement_path(special_requirement) %></td>
-        <td><%= link_to 'Destroy', special_requirement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <br>
 
-<br>
-
-<%= link_to 'New Special Requirement', new_special_requirement_path %>
+    <%= link_to 'Add a Special Requirement', new_special_requirement_path, class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 mb-4 inline-block rounded" %>
+  </div>
+</div>

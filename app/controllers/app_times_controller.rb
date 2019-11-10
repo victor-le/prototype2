@@ -32,7 +32,7 @@ class AppTimesController < ApplicationController
 
     respond_to do |format|
       if @app_time.save
-        format.html { redirect_to @app_time, notice: 'App time was successfully created.' }
+        format.html { redirect_to @app_time, notice: 'Appointment time was successfully created.' }
         format.json { render :show, status: :created, location: @app_time }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class AppTimesController < ApplicationController
   def update
     respond_to do |format|
       if @app_time.update(app_time_params)
-        format.html { redirect_to @app_time, notice: 'App time was successfully updated.' }
+        format.html { redirect_to @app_time, notice: 'Appointment time was successfully updated.' }
         format.json { render :show, status: :ok, location: @app_time }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class AppTimesController < ApplicationController
   def destroy
     @app_time.destroy
     respond_to do |format|
-      format.html { redirect_to app_times_url, notice: 'App time was successfully destroyed.' }
+      format.html { redirect_to app_times_url, notice: 'Appointment time was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -78,7 +78,7 @@ class AppTimesController < ApplicationController
 
     def must_be_admin
       unless current_user.admin?
-        redirect_to app_schedules_path, alert: "You don't have access to this page"
+        redirect_to app_schedules_path, alert: "You don't have access to this page."
       end
     end
 end

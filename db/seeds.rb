@@ -72,7 +72,6 @@ service4.serviceName = 'Cupping Therapy'
 service4.servicePrice = 15
 service4.save!
 
-
 spec = SpecialRequirement.new
 spec.requirementDesc = 'Relaxed'
 spec.requirementValue = 1
@@ -94,6 +93,6 @@ spec3.requirementValue = 4
 spec3.save!
 
 spec4 = SpecialRequirement.new
-spec4.requirementDesc = 'Instense'
+spec4.requirementDesc = 'Intense'
 spec4.requirementValue = 5
 spec4.save!
