@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field px-16 items-center justify-between max-w-md m-auto">
     <%= form.label :Service_name, class: "label" %>
     <%= form.text_field :serviceName, class: "input" %>
   </div>
 
-  <div class="field">
+  <div class="field pt-8 px-16 items-center justify-between max-w-md m-auto">
     <%= form.label :Price_for_service, class: "label" %>
     <%= form.text_field :servicePrice, class: "input" %>
   </div>
 
-  <div class="actions">
+  <div class="actions text-center p-10">
     <%= form.submit "Create a New Service", class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 mb-4 inline-block rounded" %>
   </div>
 <% end %>

@@ -1,7 +1,11 @@
-<div class="container max-w-xl mx-auto flex flex-col items-center justify-center px-2 my-12">
+<div class="container w-full mx-auto flex flex-col items-center justify-center px-2 my-12">
   <div class="bg-white px-6 py-8 border rounded-lg shadow-md text-black w-full">
-<h1 class="mb-8 text-3xl text-center">New Service</h1>
+    <h1 class="pb-6 text-3xl text-center font-semibold text-pink-700">Creating New</h1>
+    <p class="mb-8 text-2xl text-center">Services</p>
 
 <%= render 'form', service: @service %>
 
 <%= link_to 'Back', services_path, class:"cursor-pointer font-semibold border border-pink-700 hover:border-pink-900 mr-3 px-5 py-2 inline-block text-pink-700 hover:text-pink-900 rounded" %>
+
+  </div>
+</div>
