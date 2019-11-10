@@ -59,3 +59,5 @@ gem 'friendly_id', '~> 5.3'
 gem 'sidekiq', '~> 6.0', '>= 6.0.1'
 
 gem 'simple_calendar', '~> 2.0'
+
+gem 'jquery-cdn', '~> 3.3', '>= 3.3.1'

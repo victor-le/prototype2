@@ -1,3 +1,4 @@
+
 <nav class="mb-4">
   <ul id="nav-tab" class="tabs list-reset flex">
 
@@ -7,14 +8,15 @@
       Calendar
       <% end %>
     </li>
-    <% end %>
+      <li><a href="/app_schedules.csv"><button class="btn btn-success cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded">Export Appointments</button></a></li>
+
+  <% end %>
 
     <li data-tab="all-apppointments">
       <%= link_to "#all-appointments", class: "cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded" do %>
       All Appointments
       <% end %>
     </li>
-
   </ul>
 </nav>
 

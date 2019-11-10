@@ -20,8 +20,8 @@ user2.name = 'John Doe'
 user2.email = 'johndoe22@mail.com'
 user2.password = 'password'
 user2.password_confirmation = 'password'
-user.phone_number = '832-797-8172'
 user.admin = false
+user.phone_number = '832-797-8172'
 user2.save!(validate: false)
 
 user3 = User.new

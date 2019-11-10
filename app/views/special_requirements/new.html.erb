@@ -1,6 +1,11 @@
-<div class="container max-w-xl mx-auto flex flex-col items-center justify-center px-2 my-12">
+<!-- alert
+<p id="notice"><%= notice %></p>
+-->
+
+<div class="container w-full mx-auto flex flex-col items-center justify-center px-2 my-12">
   <div class="bg-white px-6 py-8 border rounded-lg shadow-md text-black w-full">
-    <h1 class="mb-8 text-3xl text-center">New Special Requirement</h1>
+    <h1 class="pb-6 text-3xl text-center font-semibold text-pink-700">Creating New</h1>
+    <p class="mb-8 text-2xl text-center">Special Requirement</p>
 
     <%= render 'form', special_requirement: @special_requirement %>
 

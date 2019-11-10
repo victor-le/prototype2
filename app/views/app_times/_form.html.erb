@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
- <div class="mb-6">
+ <div class="px-16 text-center ">
     <%= form.label :set_an_appointment_time, class: "label" %>
-    <div class="flex items-center justify-between max-w-md">
+    <div class="flex items-center justify-between max-w-md m-auto">
       <%= form.datetime_select :appDate, { start_day: Date.today, ampm: true, minute_step: 15, start_hour: 8, end_hour: 20, start_month: Date.today.month, discard_year: true }, { class: "select py-2 px-2 mr-2" } %>
     </div>
   </div>
 
-  <div class="actions">
+  <div class="actions text-center p-10">
     <%= form.submit "Create a New Time Slot", class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 mb-4 inline-block rounded" %>
   </div>
 <% end %>

@@ -1,32 +1,41 @@
+<!-- alert
 <p id="notice"><%= notice %></p>
-<div class="container max-w-xl mx-auto flex flex-col items-center justify-center px-2 my-12">
-  <div class="bg-white px-6 py-8 border rounded-lg shadow-md text-black w-full">
-    <h1 class="mb-8 text-3xl text-center">Special Requirements</h1>
+-->
 
-    <table class="table table-striped">
+<!-- the white portion -->
+<div class="container w-full mx-auto flex flex-col items-center justify-center px-2 my-12">
+  <div class="bg-white px-6 py-8 border rounded-lg shadow-md text-black w-full">
+    <h1 class="pb-6 text-3xl text-center font-semibold text-pink-700">Current Special Requirements</h1>
+    <p class="mb-8 text-2xl text-center">Special Requirements</p>
+
+    <!-- table -->
+    <table class="w-full">
       <thead>
-        <tr>
-          <th>Requirement Description</th>
-          <th>Requirement Value</th>
-          <th colspan="3"></th>
-        </tr>
+      <tr class="bg-gray-300 border border-gray-400">
+        <th class="py-4">Requirement Description</th>
+        <th class="py-4">Value</th>
+        <th class="py-4" colspan="3">Actions</th>
+      </tr>
       </thead>
 
       <tbody>
-        <% @special_requirements.each do |special_requirement| %>
-          <tr>
-            <td class="border px-4 py-2"><%= special_requirement.requirementDesc %></td>
-            <td class="border px-4 py-2"><%= special_requirement.requirementValue %></td>
-            <td class="border px-4 py-2"><%= link_to 'Show', special_requirement %></td>
-            <td class="border px-4 py-2"><%= link_to 'Edit', edit_special_requirement_path(special_requirement) %></td>
-            <td class="border px-4 py-2"><%= link_to 'Destroy', special_requirement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
+      <% @special_requirements.each do |special_requirement| %>
+        <tr class="content-center border-b border-t hover:bg-pink-200">
+          <td class="w-full text-center px-4 py-2"><%= special_requirement.requirementDesc %></td>
+          <td class="w-full px-12 py-2"><%= special_requirement.requirementValue %></td>
+          <td class="w-full px-2 py-2"><%= link_to 'Show', special_requirement , class:"cursor-pointer font-semibold bg-gray-500 hover:bg-green-600 text-white px-5 py-2 inline-block rounded"%></td>
+          <td class="w-full px-2 py-2"><%= link_to 'Edit', edit_special_requirement_path(special_requirement) , class:"cursor-pointer font-semibold bg-gray-500 hover:bg-blue-600 text-white px-5 py-2 inline-block rounded"%></td>
+          <td class="w-full px-2 py-2"><%= link_to 'Remove', special_requirement, method: :delete, data: { confirm: 'Are you sure?' } , class:"cursor-pointer font-semibold bg-red-600 hover:bg-red-800 text-white px-5 py-2 inline-block rounded"%></td>
+        </tr>
+      <% end %>
       </tbody>
     </table>
 
-    <br>
+    <div class="py-10">
+      <%= link_to 'Add a Special Requirement', new_special_requirement_path, class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 mb-4 inline-block rounded" %>
+    </div>
 
-    <%= link_to 'Add a Special Requirement', new_special_requirement_path, class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 mb-4 inline-block rounded" %>
   </div>
 </div>
+
+
