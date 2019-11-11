@@ -28,7 +28,7 @@
       <div class="flex flex-wrap items-center justify-start p-4 border-b border-grey-light mb-6">
         <div class="flex-1 flex justify-between">
           <div>
-            <%= link_to app_schedule.user.name, app_schedule, class: "link mr-4" %>
+            <%= link_to app_schedule.service.serviceName, app_schedule, class: "link mr-4" %>
           </div>
           <div>
             <%= readable_time(app_schedule.app_time.appDate) %>

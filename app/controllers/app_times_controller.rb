@@ -1,7 +1,7 @@
 class AppTimesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_app_time, only: [:show, :edit, :update, :destroy]
-  before_action :must_be_admin, only: [:index, :new, :edit, :show, :destory, :update]
+  before_action :must_be_admin, only: [:index, :new, :edit, :show, :destroy, :update]
 
   # GET /app_times
   # GET /app_times.json
