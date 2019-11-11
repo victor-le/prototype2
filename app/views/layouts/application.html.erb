@@ -27,29 +27,31 @@
     <% end %>
   <% end %>
 
-  <nav class="flex flex-wrap lg:flex-none items-center justify-between bg-gray-100 p-3">
-    <div class="w-auto text-pink-700 text-2xl font-semibold lg:ml-12">
-      <p><div style="font-family: 'Marthin Slant', serif;"><%= link_to "HandsOfLyfe", root_path%></p></div>
+  <nav class="flex flex-wrap lg:flex-none items-center justify-between bg-gray-100 p-3" >
+  
+    <div class="w-auto text-pink-700 text-2xl font-semibold lg:ml-12" id="logo">
+      <p style="font-family: 'Marthin Slant', serif;"><%= link_to "HandsOfLyfe", root_path %></p>
     </div>
     <% if user_signed_in? %>
-      <div class="w-auto text-pink-600 text-right">
+      <div class=" lg:hidden w-auto text-pink-600 text-center" id="userName">
         Welcome, <%= current_user.name %>
       </div>
     <% else %>
     <% end %>
-    <div class="block lg:hidden mr-8">
+
+    <div class="block lg:hidden mr-8" id=>
       <button id="nav-toggle" class="flex items-center px-3 py-2 rounded text-pink-600 border border-pink-600">
         <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
       </button>
     </div>
-    <div class="hidden w-full flex-grow lg:flex lg:flex-none lg:w-auto lg:items-center pt-6 lg:pt-0" id="nav-content">
-      <ul class="list-reset lg:flex justify-end flex-1 items-center">
+    <div class="hidden w-full flex-grow lg:flex lg:w-auto lg:items-center pt-6 lg:pt-0" id="nav-content">
+      <ul class="lg:flex justify-end flex-1 items-center">
       <% unless admin? %>
         <li class="mr-2">
-          <a class="inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" href="/#about">About</a>
+          <a class="inline text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" href="/#about">About</a>
         </li>
         <li class="mr-2">
-          <a class="inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" href="/#services">Services</a>
+          <a class="inline text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" href="/#services">Services</a>
         </li>
         <% end %>
         <li class="mr-2">
@@ -81,7 +83,8 @@
         </li>
       </ul>
       <% if user_signed_in? %>
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded" %>
+               <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded" %>
+        <%= link_to "Settings", edit_user_registration_path, class:"cursor-pointer font-semibold border border-pink-700 hover:border-pink-900 mr-3 px-5 py-2 inline-block text-pink-700 hover:text-pink-900 rounded" %>
       <% else %>
         <%= link_to "Login", new_user_session_path, class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded" %>
         <%= link_to "Sign Up", new_user_registration_path, class:"cursor-pointer font-semibold border border-pink-700 hover:border-pink-900 mr-3 px-5 py-2 inline-block text-pink-700 hover:text-pink-900 rounded" %>

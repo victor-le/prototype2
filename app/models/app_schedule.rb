@@ -1,5 +1,4 @@
 class AppSchedule < ApplicationRecord
- # after_create :send_appointment_email
   belongs_to :user,
              foreign_key: "user_id"
   belongs_to :service,
@@ -14,7 +13,7 @@ class AppSchedule < ApplicationRecord
 
   validates :homeAddress, presence: true
   validates :homeType, presence: true
-  validates :state, presence: true, length: {maximum: 2}
+  validates :state, presence: true, length: {maximum: 2}, inclusion: { in: %w(NC), message: "%{value} is not a valid state" }
   validates :city, presence: true
   validates :zipcode, presence: true
   validates :zipcode, length: { is: 5 }
@@ -35,7 +34,4 @@ class AppSchedule < ApplicationRecord
     self.app_time.appDate
   end
 
-  #def send_appointment_email
-   # AppointmentMailer.appointment_scheduled(app_schedule: self, user: self.user).deliver
-  #end
 end
