@@ -28,8 +28,8 @@
   <% end %>
 
   <nav class="flex flex-wrap lg:flex-none items-center justify-between bg-gray-100 p-3">
-    <div class="w-auto text-pink-700 text-2xl font-semibold lg:ml-12">
-      <p><div style="font-family: 'Marthin Slant', serif;"><%= link_to "HandsOfLyfe", root_path%></p></div>
+    <div style="font-family: 'Marthin Slant', serif;" class="w-auto text-pink-700 text-2xl font-semibold lg:ml-12">
+      <%= link_to "HandsOfLyfe", root_path%>
     </div>
     <% if user_signed_in? %>
       <div class="w-auto text-pink-600 text-right">
@@ -46,48 +46,48 @@
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
       <% unless admin? %>
         <li class="mr-2">
-          <a class="inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" href="/#about">About</a>
+          <a class="inline-block text-gray-600 font-semibold hover:text-pink-700 p-2" href="/#about">About</a>
         </li>
         <li class="mr-2">
-          <a class="inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" href="/#services">Services</a>
+          <a class="inline-block text-gray-600 font-semibold hover:text-pink-700 p-2" href="/#services">Services</a>
         </li>
           <li class="mr-2">
-            <a class="inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" href="/#policies">Policies</a>
+            <a class="inline-block text-gray-600 font-semibold hover:text-pink-700 p-2" href="/#policies">Policies</a>
           </li>
         <% end %>
         <li class="mr-2">
-        <%= link_to "Users", users_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
+        <%= link_to "Users", users_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 p-2" if admin? %>
         </li>
         <li class="mr-2">
-        <%= link_to "Appointment Dashboard", app_schedules_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
+        <%= link_to "Appointment Dashboard", app_schedules_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 p-2" if admin? %>
         </li>
         <li class="mr-2">
-        <%= link_to "Schedule an Appointment", new_app_schedule_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" unless admin? %>
+        <%= link_to "Schedule an Appointment", new_app_schedule_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 p-2" unless admin? %>
         </li>
         <% if user_signed_in? %>
         <li class="mr-2">
-          <%= link_to "My Appointments", app_schedules_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" unless admin? %>
+          <%= link_to "My Appointments", app_schedules_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 p-2" unless admin? %>
         </li>
         <% else %>
         <% end %>
         <li class="mr-2">
-          <%= link_to "Set Time Slots", app_times_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
+          <%= link_to "Set Time Slots", app_times_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 p-2" if admin? %>
         </li>
         <li class="mr-2">
-          <%= link_to "Create Services", services_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
+          <%= link_to "Create Services", services_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 p-2" if admin? %>
         </li>
         <li class="mr-2">
-        <%= link_to "Set Time Durations", app_durations_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>      
+        <%= link_to "Set Time Durations", app_durations_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 p-2" if admin? %>
         </li>
         <li class="mr-2">
-        <%= link_to "Set Massage Requirements", special_requirements_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 py-2 px-4" if admin? %>
+        <%= link_to "Set Massage Requirements", special_requirements_path, class: "inline-block text-gray-600 font-semibold hover:text-pink-700 p-2" if admin? %>
         </li>
       </ul>
       <% if user_signed_in? %>
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded" %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-4 py-2 inline-block rounded" %>
       <% else %>
-        <%= link_to "Login", new_user_session_path, class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded" %>
-        <%= link_to "Sign Up", new_user_registration_path, class:"cursor-pointer font-semibold border border-pink-700 hover:border-pink-900 mr-3 px-5 py-2 inline-block text-pink-700 hover:text-pink-900 rounded" %>
+        <%= link_to "Login", new_user_session_path, class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-4 py-2 inline-block rounded" %>
+        <%= link_to "Sign Up", new_user_registration_path, class:"cursor-pointer font-semibold border border-pink-700 hover:border-pink-900 mr-3 px-4 py-2 inline-block text-pink-700 hover:text-pink-900 rounded" %>
       <% end %>
     </div>
   </nav>
@@ -105,12 +105,12 @@
 
   <!-- Footer -->
 
-  <div class="lg:flex justify-center max-w-6xl mx-auto py-6 border-t border-gray-400">
+  <div class="md:flex items-center justify-center max-w-6xl mx-auto py-6 border-t border-gray-400">
 
-    <div class="ml-4">©2019 HandsOfLyfe |</div>
-    <div class="ml-2"> Made with Love <span class="text-pink-600">♥</span> by Cosmic Solutions</div>
+    <div class="ml-4 text-sm">©2019 HandsOfLyfe</div>
+    <div class="ml-4 text-sm">Made with Love <span class="text-pink-600">♥</span> by Cosmic Solutions</div>
 
-    <div class="flex lg:mx-auto lg:my-auto mx-8 my-4">
+    <div class="flex md:mx-8 md:my-auto m-4">
       <a href="https://facebook.com/handsoflyfe" target="_blank" class="mx-3 h-8 w-8">
         <img src="/assets/facebook.svg" alt="Facebook Icon">
       </a>
