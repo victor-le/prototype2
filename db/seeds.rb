@@ -12,8 +12,8 @@ user.email = 'admin@mail.com'
 user.password = 'password'
 user.password_confirmation = 'password'
 user.admin = true
-user.phone_number = '713-272-1728'
-user.save!(validate: false)
+user.phone_number = '713-172-5555'
+user.save(false)
 
 user2 = User.new
 user2.name = 'John Doe'
@@ -22,16 +22,16 @@ user2.password = 'password'
 user2.password_confirmation = 'password'
 user.admin = false
 user.phone_number = '832-797-8172'
-user2.save!(validate: false)
+user2.save(false)
 
 user3 = User.new
 user.name = 'Anna Alegria'
-user.email = 'handsoflyfe@mail.com'
+user.email = 'handsoflyfe@gmail.com'
 user.password = 'Lovemassage2018'
 user.password_confirmation = 'Lovemassage2018'
 user.admin = true
 user.phone_number = '832-890-9086'
-user.save!(validate: false)
+user.save(false)
 
 user4 = User.new
 user.name = 'Wendy Nguyen'
@@ -40,7 +40,7 @@ user.password = 'studentdebt19!'
 user.password_confirmation = 'password'
 user.admin = true
 user.phone_number = '713-272-1728'
-user.save!(validate: false)
+user.save(false)
 
 duration = AppDuration.new
 duration.duration = 90
