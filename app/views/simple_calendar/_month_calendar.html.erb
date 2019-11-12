@@ -1,8 +1,8 @@
 <div class="simple-calendar">
   <div class="calendar-heading py-4" >
-    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class:"cursor-pointer text-sm text-center w-24 bg-gray-600 hover:bg-gray-800 text-white mr-3 p-1 inline-block rounded" %>
+    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class:"cursor-pointer text-sm text-center w-24 bg-pink-600 hover:bg-pink-800 text-white mr-3 p-1 inline-block rounded" %>
     <span class="calendar-title font-bold text-2xl"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class:"cursor-pointer text-sm text-center w-24 bg-gray-600 hover:bg-gray-800 text-white ml-3 p-1 inline-block rounded" %>
+    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class:"cursor-pointer text-sm text-center w-24 bg-pink-600 hover:bg-pink-800 text-white ml-3 p-1 inline-block rounded" %>
   </div>
 
   <table class="table table-striped">

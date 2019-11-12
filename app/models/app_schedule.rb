@@ -31,14 +31,14 @@ CSV_HEADER = %w{Appointment_Time_Slot Client_Name Service Service_Price Duration
           app_schedule.service.servicePrice,
           app_schedule.app_duration.duration,
           app_schedule.app_duration.durationPrice,
-           app_schedule.homeAddress,
-            app_schedule.homeType,
-           app_schedule.suiteNumber,
-            app_schedule.city,
-            app_schedule.state,
-            app_schedule.zipcode,
-            app_schedule.comment,
-            app_schedule.special_requirement.requirementDesc
+          app_schedule.homeAddress,
+          app_schedule.homeType,
+          app_schedule.suiteNumber,
+          app_schedule.city,
+          app_schedule.state,
+          app_schedule.zipcode,
+          app_schedule.comment,
+          app_schedule.special_requirement.requirementDesc
             ]
       end
     end

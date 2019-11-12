@@ -4,21 +4,22 @@
     <div class="flex flex-wrap justify-between items-center mb-5">
       <h1><%= @app_schedule.user.name %></h1>
       <%= link_to 'Edit', edit_app_schedule_path(@app_schedule), class: "btn btn-destroy"  if admin? %>
-      <%= link_to "Cancel Appointment", app_schedule_path(@app_schedule), method: :delete, data: { confirm: "Are you sure you want to cancel? "}, class: "btn btn-destroy" if admin? %>
+      <%= link_to "Cancel Appointment", app_schedule_path(@app_schedule), method: :delete, data: { confirm: "Are you sure you want to cancel? "}, class: "btn btn-destroy bg-pink-700 hover:bg-pink-900 text-white font-bold"%>
+
     </div>
 
 
 
     <div class="border p-6 bg-grey-lighter mb-5 flex items-center justify-between">
-      <p class="border-2 py-3 px-4 border-indigo rounded-full text-sm text-indigo">
-        Appointment time: <span class="font-bold"><%= readable_time(@app_schedule.app_time.appDate) %></span>
+      <p class="py-3 px-4 text-sm text-pink">
+        Appointment Time Slot: <span class="font-bold"><%= readable_time(@app_schedule.app_time.appDate) %></span>
         <br>
-        Address: <span class="font-bold"><%= @app_schedule.homeAddress %></span>
+        Appointment Address: <span class="font-bold"><%= @app_schedule.homeAddress %></span>
         <span class="font-bold"><%= @app_schedule.city %> </span>
         <span class="font-bold"><%= @app_schedule.state %> </span>
         <span class="font-bold"><%= @app_schedule.zipcode %></span>
         <br>
-        Comment: <span class="font-bold"><%= @app_schedule.comment %></span>
+        Additional Comments: <span class="font-bold"><%= @app_schedule.comment %></span>
         <br>
         Service: <span class="font-bold"><%= @app_schedule.service.serviceName %></span>
         <br>
