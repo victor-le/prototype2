@@ -8,9 +8,10 @@
       Calendar
       <% end %>
     </li>
-      <li><a href="/app_schedules.csv"><button class="btn btn-success cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded">Export Appointments</button></a></li>
-
   <% end %>
+
+    <li><a href="/app_schedules.csv"><button class="btn btn-success cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded">Export Appointments</button></a></li>
+
 
     <li data-tab="all-apppointments">
       <%= link_to "#all-appointments", class: "cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded" do %>
@@ -28,13 +29,13 @@
       <div class="flex flex-wrap items-center justify-start p-4 border-b border-grey-light mb-6">
         <div class="flex-1 flex justify-between">
           <div>
-            <%= link_to app_schedule.service.serviceName, app_schedule, class: "link mr-4" %>
+            <%= link_to app_schedule.user.name, app_schedule, class: "link mr-4" %>
           </div>
           <div>
             <%= readable_time(app_schedule.app_time.appDate) %>
           </div>
         </div>
-        <%= link_to "Cancel Appointment", app_schedule, method: :delete, data: { confirm: "Are you sure?." }, class: "btn btn-destroy ml-4"  if admin? %>
+        <%= link_to "Cancel Appointment", app_schedule, method: :delete, data: { confirm: "Are you sure?." }, class: "btn btn-destroy ml-4 cursor-pointer"  if admin? %>
       </div>
     <% end %>
   </div>

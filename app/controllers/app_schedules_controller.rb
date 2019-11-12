@@ -18,6 +18,10 @@ class AppSchedulesController < ApplicationController
     end
     else
       @app_schedules = current_user.app_schedules.where(user_id: current_user)
+      respond_to do |format|
+        format.html
+        format.csv { send_data @app_schedules.to_csv, filename: "appsched-#{Date.today}.csv"}
+      end
     end
   end
 
