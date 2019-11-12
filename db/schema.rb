@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_031739) do
 
   create_table "app_durations", force: :cascade do |t|
     t.integer "duration"
-    t.decimal "durationPrice"
+    t.integer "durationPrice"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_031739) do
 
   create_table "services", force: :cascade do |t|
     t.string "serviceName"
-    t.decimal "servicePrice"
+    t.integer "servicePrice"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

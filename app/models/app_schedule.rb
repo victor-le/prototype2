@@ -1,14 +1,14 @@
 class AppSchedule < ApplicationRecord
-  belongs_to :user,
-             foreign_key: "user_id"
-  belongs_to :service,
-             foreign_key: "service_id" 
-  belongs_to :app_duration,
-             foreign_key: "appduration_id" 
-  belongs_to :special_requirement,
-             foreign_key: "specialrequirement_id" 
-  belongs_to :app_time,
-             foreign_key: "app_time_id"
+  belongs_to :user
+            #  foreign_key: "user_id"
+  belongs_to :service
+            #  foreign_key: "service_id" 
+  belongs_to :app_duration
+            #  foreign_key: "appduration_id" 
+  belongs_to :special_requirement
+            #  foreign_key: "specialrequirement_id" 
+  belongs_to :app_time
+            #  foreign_key: "app_time_id"
              
 
   validates :homeAddress, presence: true
