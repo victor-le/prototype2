@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_11_09_031739) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "app_addresses", force: :cascade do |t|
     t.string "homeType"
     t.string "homeAddress"
@@ -47,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_031739) do
     t.integer "specialrequirement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "app_time_id"
+    t.integer "app_time_id"
     t.string "comment"
     t.index ["app_time_id"], name: "index_app_schedules_on_app_time_id"
     t.index ["appduration_id"], name: "index_app_schedules_on_appduration_id"

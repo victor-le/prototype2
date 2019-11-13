@@ -1,32 +1,48 @@
 
-<nav class="mb-4">
-  <ul id="nav-tab" class="tabs list-reset flex">
+<nav class="mb-4 flex justify-center">
+  <ul id="nav-tab" class="tabs list-reset  flex flex-col lg:flex-row md:flex-row  text-center ">
 
 <% if current_user.admin? %>
-    <li class="active" data-tab="calendar">
-      <%= link_to "#calendar", class: "cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded" do %>
+
+
+
+
+      <%= link_to "#calendar", class:"cursor-pointer object-cover font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded mb-4 w-auto" do %>
       Calendar
+
       <% end %>
-    </li>
+
+
+
 
       <!-- Hide Export Code
       <li><a href="/app_schedules.csv"><button class="btn btn-success cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded">Export Appointments</button></a></li>
       -->
 
-      <li>
-        <%= link_to "/app_schedules.csv", class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded" do%>
+
+
+        <%= link_to "/app_schedules.csv", class:"cursor-pointer object-cover font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded mb-4 w-auto " do%>
           Export Appointments
+
         <%end %>
-      </li>
+
+
 
   <% end %>
 
-    <li data-tab="all-apppointments">
-      <%= link_to "#all-appointments", class: "cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded" do %>
+
+
+
+      <%= link_to "#all-appointments", class: "cursor-pointer object-cover font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded mb-4 w-auto " do %>
       All Appointments
+
       <% end %>
-    </li>
+
+
+
+
   </ul>
+
 </nav>
 
 <div class="bg-white p-10 border rounded">
