@@ -78,6 +78,7 @@
         Anna loves yoga and would like to further her education in Reiki energy work, to expand her knowledge with the body and mind.
         Anna believes looking at the body as a whole, mind, body and spirit for optimum performance.</p>
 
+      
       <div class="pt-12 pb-8">
         <button class="modal-open bg-pink-700 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded">
           Catch These Hands
@@ -166,6 +167,11 @@
         </div>
       </div>
       <script>
+
+      $("#contactEmail").Click(function(e){
+        $(this).dialog("open")
+      })
+
           var openmodal = document.querySelectorAll('.modal-open')
           for (var i = 0; i < openmodal.length; i++) {
               openmodal[i].addEventListener('click', function(event){

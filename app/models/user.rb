@@ -4,5 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   has_many :app_schedules, dependent: :destroy
+  validates_uniqueness_of :email
+
+  
+  validates :phone_number, format: { with: /((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/,
+    message: "Numbers must be formated in xxx-xxx-xxxx " }
+  
 end
