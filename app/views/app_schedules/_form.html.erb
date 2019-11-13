@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :Address, class: "label" %>
-    <%= form.text_field :homeAddress, class: "input", autofocus: true %>
+    <%= form.label :Address, class: "label required" %>
+    <%= form.text_field :homeAddress, class: "input", :required => true %>
   </div>
 
   <div class="field">
     <%= form.label :home_type, class: "label" %>
-    <%= form.text_field :homeType, class: "input", placeholder: "1 Story, 2 Story, Apartment, etc." %>
+    <%= form.text_field :homeType, class: "input",:required => true, placeholder: "1 Story, 2 Story, Apartment, etc." %>
   </div>
 
   <div class="field">
@@ -27,18 +27,22 @@
   </div>
 
   <div class="field">
-    <%= form.label :city, class: "label" %>
-    <%= form.text_field :city, class: "input" %>
+    <%= form.label :city, class: "label required" %>
+    <%= form.text_field :city, class: "input", :required => true
+
+ %>
   </div>
 
   <div class="field">
-    <%= form.label :state, class: "label" %>
-    <%= form.text_field :state, class: "input" %>
+    <%= form.label :state, class: "label required" %>
+    <%= form.text_field :state, class: "input", :required => true, value: "NC"
+
+ %>
   </div>
 
   <div class="field">
-    <%= form.label :zipcode, class: "label" %>
-    <%= form.text_field :zipcode, class: "input" %>
+    <%= form.label :zipcode, class: "label required" %>
+    <%= form.text_field :zipcode, class: "input", :required => true %>
   </div>
 
     <div class="field">
@@ -47,7 +51,7 @@
   </div>
 
   <div class="mb-4">
-    <%= form.label :service, class: "label" %>
+    <%= form.label :service, class: "label r" %>
     <%= collection_select(:app_schedule, :service_id, Service.all, :id, :serviceName, {}) %>
   </div>
 
@@ -69,4 +73,15 @@
   <div class="actions">
     <%= form.submit "Schedule Your Appointment", class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 mb-4 inline-block rounded"%>
   </div>
+  <br>
+  <br>
+
+<!--
+  <div class="px-4 lg:px-0 m-auto mt-8 lg:max-w-4xl flex flex-wrap items-start justify-between text-gray-700">
+    <h2 class="text-lg font-bold">Pricing</h2>
+    <p class="mb-2">Please note that prices will increase based on session duration, up-charges on selected services, and travel distance. A $20 travel fee will be applied to the appointment via e-mail confirmation. Failure to pay the deposit within 24 hours of booking, may result in the cancellation of your appointment. Additional charges may be added to the final cost of the appointment upon completion which will account for travel distances exceeding the first 20 miles ($1 per mile after).</p>
+    <h2 class="text-lg font-bold">Cancellation Policy</h2>
+    <p class="mb-2">A 24-hour advance notice is required when cancelling or rescheduling an appointment. This allows for the opportunity for someone else to schedule an appointment. If you are unable to give 24 hours advance notice, the $20 deposit fee towards travel will not be refunded.</p>
+  </div>-->
+
 <% end %>

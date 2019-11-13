@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_26_164958) do
+ActiveRecord::Schema.define(version: 2019_11_09_031739) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "app_addresses", force: :cascade do |t|
     t.string "homeType"
@@ -21,15 +24,11 @@ ActiveRecord::Schema.define(version: 2019_10_26_164958) do
     t.integer "zipcode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.integer "app_schedule_id"
-    t.index ["app_schedule_id"], name: "index_app_addresses_on_app_schedule_id"
-    t.index ["user_id"], name: "index_app_addresses_on_user_id"
   end
 
   create_table "app_durations", force: :cascade do |t|
     t.integer "duration"
-    t.decimal "durationPrice"
+    t.integer "durationPrice"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -48,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_10_26_164958) do
     t.integer "specialrequirement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "app_time_id"
+    t.bigint "app_time_id"
     t.string "comment"
     t.index ["app_time_id"], name: "index_app_schedules_on_app_time_id"
     t.index ["appduration_id"], name: "index_app_schedules_on_appduration_id"
@@ -75,9 +74,18 @@ ActiveRecord::Schema.define(version: 2019_10_26_164958) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "inbox_tables", force: :cascade do |t|
+    t.string "full_name"
+    t.string "email"
+    t.string "subject"
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "serviceName"
-    t.decimal "servicePrice"
+    t.integer "servicePrice"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -95,16 +103,14 @@ ActiveRecord::Schema.define(version: 2019_10_26_164958) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "username"
     t.string "name"
     t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "app_addresses", "app_schedules"
-  add_foreign_key "app_addresses", "users"
   add_foreign_key "app_schedules", "app_times"
 end

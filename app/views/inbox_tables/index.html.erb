@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Inbox Tables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inbox_tables.each do |inbox_table| %>
+      <tr>
+        <td><%= link_to 'Show', inbox_table %></td>
+        <td><%= link_to 'Edit', edit_inbox_table_path(inbox_table) %></td>
+        <td><%= link_to 'Destroy', inbox_table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inbox Table', new_inbox_table_path %>

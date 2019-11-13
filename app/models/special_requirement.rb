@@ -3,4 +3,6 @@ class SpecialRequirement < ApplicationRecord
 
     validates :requirementDesc, presence: true
     validates :requirementValue, presence: true
+    validates_uniqueness_of :requirementsValue
+    validates_uniqueness_of :requirementDesc
 end

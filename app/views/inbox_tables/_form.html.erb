@@ -1,0 +1,17 @@
+<%= form_with(model: inbox_table, local: true) do |form| %>
+  <% if inbox_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inbox_table.errors.count, "error") %> prohibited this inbox_table from being saved:</h2>
+
+      <ul>
+        <% inbox_table.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

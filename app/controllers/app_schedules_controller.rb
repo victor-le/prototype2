@@ -6,6 +6,7 @@ class AppSchedulesController < ApplicationController
 
   # GET /app_schedules
   # GET /app_schedules.json
+  #def import     @software = Software.find(params[:software_id])     Code.import(@software, params[:file])     redirect_to codes_path, notice: 'Codes were successfully uploaded!'   end
 
   def index
     if current_user.admin?
@@ -17,6 +18,10 @@ class AppSchedulesController < ApplicationController
     end
     else
       @app_schedules = current_user.app_schedules.where(user_id: current_user)
+      respond_to do |format|
+        format.html
+        format.csv { send_data @app_schedules.to_csv, filename: "appsched-#{Date.today}.csv"}
+      end
     end
   end
 
