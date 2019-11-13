@@ -8,7 +8,16 @@
       Calendar
       <% end %>
     </li>
+
+      <!-- Hide Export Code
       <li><a href="/app_schedules.csv"><button class="btn btn-success cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded">Export Appointments</button></a></li>
+      -->
+
+      <li>
+        <%= link_to "/app_schedules.csv", class:"cursor-pointer font-semibold bg-pink-700 hover:bg-pink-900 text-white mr-3 px-5 py-2 inline-block rounded" do%>
+          Export Appointments
+        <%end %>
+      </li>
 
   <% end %>
 
